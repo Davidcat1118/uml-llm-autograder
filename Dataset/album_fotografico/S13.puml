@@ -1,0 +1,42 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  - nome
+  - password
+  + Crea Album()
+  + aggiungi foto()
+}
+
+class "ALBUM FOTOGRAFICO" as AlbumFotografico {
+  - id Creatore
+}
+
+class ALBUMLOCALIZZATO {
+}
+
+class ALBUMPERSONALE {
+}
+
+class FOTOGRAFIA {
+  - autore
+  - titolo
+}
+
+class LUOGO {
+  + latitudine
+  + longitudine
+  + nome Mnemonico
+}
+
+' Relazioni di Ereditarietà
+AlbumFotografico <|-- ALBUMLOCALIZZATO
+AlbumFotografico <|-- ALBUMPERSONALE
+
+' Associazioni ipotizzate in base alle molteplicità estratte (* e 1)
+UTENTE "1" -- "*" AlbumFotografico 
+UTENTE "*" -- "*" FOTOGRAFIA 
+AlbumFotografico "*" -- "1" FOTOGRAFIA 
+FOTOGRAFIA "1" -- "1" LUOGO 
+
+@enduml

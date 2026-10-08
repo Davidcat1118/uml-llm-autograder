@@ -1,0 +1,36 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class ACCOUNT {
+  - Login : string
+  - Password : string
+  - Indirizzo_Posta : string
+}
+
+class MESSAGGIO {
+  - Contenuto : string
+  - Data : Date
+  - firma : string
+  - Indirizzo_Destinator : string
+}
+
+class RUBRICA {
+}
+
+class CONTATTO {
+  - nome : string
+  - congnome : string
+  - indirizzo : string
+}
+
+' Associazioni
+ACCOUNT "1" -- "1" RUBRICA : +possessore >
+
+' Aggregazioni
+RUBRICA "0..*" o-- CONTATTO
+
+' Classe Associazione (su associazione ricorsiva)
+ACCOUNT "1" -- "1..*" ACCOUNT : +mittente \n messaggio
+(ACCOUNT, ACCOUNT) .. MESSAGGIO
+
+@enduml

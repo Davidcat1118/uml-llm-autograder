@@ -1,0 +1,54 @@
+@startuml
+' Elaborato Studente (image_6.png)
+
+class Utente {
+  nome
+  cognome
+  numero_tel
+}
+
+class Account {
+  login
+  email
+  password
+}
+
+class messaggio {
+  testo
+  firme
+}
+
+class "messaggio inviato" as messaggio_inviato {
+}
+
+class "messaggio ricevuto" as messaggio_ricevuto {
+}
+
+class Rubbrica {
+  numero_di_contatti
+}
+
+class contatto {
+  nome
+  cognome
+  email
+}
+
+' Relazioni di Ereditarietà (Abuso di ereditarietà - C3)
+messaggio <|-- messaggio_inviato
+messaggio <|-- messaggio_ricevuto
+
+' Associazioni e molteplicità
+Utente "1" -- "1..*" Account
+Utente "1" --* "1" Rubbrica
+
+Account "1" -- "1..*" messaggio_inviato
+messaggio_inviato "0..*" -- "1..*" messaggio_ricevuto
+
+Rubbrica "1" -- "*" contatto
+
+' Associazioni dirette ai contatti
+messaggio_inviato "1..*" -- "1..*" contatto
+messaggio_ricevuto "*" -- "1" contatto
+
+@enduml

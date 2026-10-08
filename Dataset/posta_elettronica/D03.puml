@@ -1,0 +1,53 @@
+@startuml
+class Utente {
+  + nome: String
+  + cognome: String
+}
+
+class Account {
+  + login: String
+  + password: String
+  + indirizzoPostale: String
+}
+
+class Messaggio {
+  + testo: String
+  + firma: String
+}
+
+class MessaggioRicevuto {
+  + mittente: String
+}
+
+class MessaggioInviato {
+  + destinatario: String
+}
+
+class Rubrica {
+  + datiPersonali: String
+}
+
+class Contatto {
+  + nome: String
+  + cognome: String
+}
+
+class Indirizzo {
+  + indirizzo: String
+}
+
+Utente "1" -- "1..*" Account
+Account "1" *-- "1..*" Messaggio
+Account "1" -- "1" Rubrica
+
+Rubrica *-- "1..*" Contatto
+Contatto "1" -- "1..*" Indirizzo
+
+MessaggioRicevuto -up-|> Messaggio
+MessaggioInviato -up-|> Messaggio
+
+MessaggioRicevuto "0..1" --> "0..*" MessaggioInviato : in risposta
+
+MessaggioRicevuto "1" -- "1" Indirizzo
+MessaggioInviato "1" -- "1" Indirizzo
+@enduml

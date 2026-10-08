@@ -1,0 +1,55 @@
+@startuml
+
+' Elaborato Studente: Jovine Arianna - DE1000122
+
+class Utente {
+}
+
+class Mittente {
+}
+
+class DESTINATARIO {
+}
+
+class Account {
+  - login: String
+  - password: String
+  - indirizzoEmail: String
+}
+
+class Rubrica {
+}
+
+class Contatto {
+  - nome: String
+  - cognome: String
+  - indirizzoEmail: String
+}
+
+class Messaggio {
+  - testo: String
+  - firma: String
+}
+
+class MessaggioRicevuto {
+}
+
+class MessaggioInviato {
+}
+
+
+Utente <|-- Mittente
+Utente <|-- DESTINATARIO
+Messaggio <|-- MessaggioRicevuto
+Messaggio <|-- MessaggioInviato
+
+
+Utente "1" -- "1" Rubrica : possiede >
+Utente "1" -- "1..*" Account : gestisce >
+Rubrica "1" *-- "0..*" Contatto : memorizza >
+
+Contatto "1" -- "1..*" Messaggio : invia >
+Account "1" -- "1..*" MessaggioRicevuto
+Account "1" -- "1..*" MessaggioInviato
+
+@enduml

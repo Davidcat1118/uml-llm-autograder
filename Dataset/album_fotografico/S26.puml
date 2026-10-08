@@ -1,0 +1,38 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utente {
+  - nome: string
+  - password: string
+  - crea album()
+  - aggiungi foto()
+  - rimuovi foto()
+  - crea album localizzato()
+  - crea album personale()
+}
+
+class "Album fotografico" as AlbumFotografico {
+}
+
+
+class Fotografia {
+  - titolo: string
+}
+
+class Luogo {
+  - Latitudine: float
+  - Longitudine: float
+  - nome mnemonico: string
+}
+
+
+' Associazioni
+Utente "1..1" -- "0..*" AlbumFotografico : crea 
+Utente "1..1" -- "0..*" Fotografia : scatta 
+Utente "0..*" -- "0..*" Fotografia : raffigura 
+Fotografia "1..*" -- "0..1" Luogo
+
+' Aggregazione
+AlbumFotografico "0..*" o-- "0..*" Fotografia
+
+@enduml

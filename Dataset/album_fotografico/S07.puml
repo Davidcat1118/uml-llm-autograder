@@ -1,0 +1,30 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  - nome: String
+  - password: String
+}
+
+class ALBUM {
+  - creatore: Utente
+}
+
+class FOTOGRAFIA {
+  - Autore: Utente
+  - Titolo: String
+  - Luogo: LUOGO
+  - Raffigura: ArrayList
+}
+
+enum LUOGO {
+  Coordinate: String
+  Nome: String
+}
+
+' Associazioni
+UTENTE -- ALBUM : crea 
+ALBUM "1..*" o-- "1..*" FOTOGRAFIA : composti
+FOTOGRAFIA -- LUOGO
+
+@enduml

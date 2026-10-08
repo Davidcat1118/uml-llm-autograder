@@ -1,0 +1,51 @@
+@startuml
+' Elaborato Studente: GADA MYKHAYLO - Matr: DE1000145
+
+class Utente {
+  +Gestione Account()
+}
+
+class Rubrica {
+  +MemorizzaContatto()
+}
+
+class Account {
+  -login
+  -Password
+  -indirizzoPosta
+  +GestioneMessaggi()
+}
+
+class Contatto {
+  -nome
+  -indirizzoPosta
+  -cognome
+}
+
+class Mittente
+class Destinatario
+
+class Messaggio {
+  -testo
+  -Firma
+}
+
+class Inviato
+class Ricevuto
+
+' Relazioni di Ereditarietà
+Contatto <|-- Mittente
+Contatto <|-- Destinatario
+Messaggio <|-- Inviato
+Messaggio <|-- Ricevuto
+
+' Associazioni e Aggregazioni
+Utente "1" -- "1..*" Account : gestisce >
+Rubrica o-- "1..*" Contatto : contiene >
+Account "1..*" -- "1" Contatto : Possiede >
+Account "1" -- "1..*" Messaggio : ha >
+Messaggio "1" -- "1" Mittente
+Messaggio "1" -- "1..*" Destinatario
+Inviato -- Ricevuto : risposta >
+
+@enduml

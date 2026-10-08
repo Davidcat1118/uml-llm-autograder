@@ -1,0 +1,43 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  - NOME
+  - PASSWORD
+  + CREA UTENTE()
+  + MODIFICA NOME()
+  + MODIFICA PASS()
+}
+
+class ALBUM {
+  - FOTO
+  - NOME
+  - AUTORE
+  + FILTRA FOTO UTENTE()
+  + VISUALIZZA ALBUM()
+  + VISUALIZZA AUTORE()
+  + VISUALIZZA FOTO()
+  + FILTRA LUOGO()
+}
+
+class FOTO {
+  - TITOLO
+  - NOME
+  + SCATTA FOTO()
+  + INSERISCI NOME()
+}
+
+class LUOGO {
+  - LONG
+  - LAT
+  - NOME
+  + VISUAL NOME()
+  + VISUAL COORDI()
+}
+
+UTENTE "1" -- "N" ALBUM 
+ALBUM "N" -- "N" FOTO 
+FOTO "N" -- "1" UTENTE
+ALBUM "1" -- LUOGO
+
+@enduml

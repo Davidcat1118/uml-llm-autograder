@@ -1,0 +1,50 @@
+@startuml
+
+
+class UTENTE {
+  NOME
+  COGNOME
+}
+
+class ACCOUNT {
+  LOGIN
+  PASSWORD
+  MAIL
+}
+
+class RUBRICA {
+}
+
+class CONTATTO {
+  NOME
+  COGNOME
+  MAIL
+}
+
+class MESSAGGIO {
+  TESTO
+  FIRMA
+  DATA
+}
+
+class MESSAGGIO_RICEVUTO {
+  MITTENTE
+  DESTINATARIO
+}
+
+class MESSAGGIO_INVIATO {
+  MITTENTE
+  DESTINATARIO
+}
+
+' Relazioni di Ereditarietà 
+MESSAGGIO --|> MESSAGGIO_RICEVUTO
+MESSAGGIO --|> MESSAGGIO_INVIATO
+
+' Associazioni e Aggregazioni 
+UTENTE "1" -- "N" ACCOUNT : POSSIEDE >
+ACCOUNT "1" -- "1" RUBRICA : HA >
+RUBRICA "1" -- "N" CONTATTO : CONTIENE >
+ACCOUNT "1" -- "0..*" MESSAGGIO : GESTISCE >
+
+@enduml

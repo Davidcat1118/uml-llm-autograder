@@ -1,0 +1,41 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+
+class UTENTE {
+  + nome
+  - password
+}
+
+enum TipoAlbum {
+  Album_localizzato
+  Album_personale
+}
+
+class ALBUM {
+  + nome
+  + Tipo: TipoAlbum
+  + Autori
+}
+
+class FOTOGRAFIA {
+  + data
+  + titolo
+  + autori
+}
+
+class LUOGO {
+  + nome_mnemonico
+  + latitudine
+  + longitudine
+}
+
+' Associazioni
+UTENTE "1" -- "*" ALBUM 
+UTENTE "*" -- "*" FOTOGRAFIA
+ALBUM o-- "*" FOTOGRAFIA
+FOTOGRAFIA "0..*" -- "1" LUOGO
+ALBUM -- TipoAlbum
+
+@enduml

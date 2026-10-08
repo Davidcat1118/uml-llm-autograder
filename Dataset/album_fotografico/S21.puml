@@ -1,0 +1,43 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  - nome: String
+  - password: String
+}
+
+class LUOGO {
+  - latitudine: double
+  - longitudine: double
+  - nomeMnemonico: String
+}
+
+class FOTOGRAFIA {
+  - titolo: String
+  - autore: String
+}
+
+class ALBUM {
+  - autore: String
+  - numFoto: int
+}
+
+class LOCALIZZATO {
+  - luogo: String
+}
+
+class PERSONALE {
+  - utenteRaffigurato: String
+}
+
+UTENTE "1..*" -- "*" ALBUM : Crea 
+UTENTE "1..*" --  FOTOGRAFIA : Scattata
+
+ALBUM "1..*" -- "1..*" FOTOGRAFIA : fa parte 
+
+LUOGO "1..*" -- "1..*" LOCALIZZATO
+
+LOCALIZZATO -up-|> ALBUM
+PERSONALE -up-|> ALBUM
+
+@enduml

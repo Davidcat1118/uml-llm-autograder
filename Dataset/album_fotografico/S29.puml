@@ -1,0 +1,35 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  - NOME: String
+  - PASSWORD: String
+  + Creazione_Album()
+  + aggiunta_Foto()
+}
+
+enum COORDINATE {
+  LATITUDINE
+  LONGITUDINE
+}
+
+class ALBUM {
+  - CREATORE: string
+  - CompLocale
+  - CompPersonale
+}
+
+class FOTOGRAFIA {
+  - AUTORE: String
+  - TITOLO: string
+  - LUOGO: COORDINATE
+  - nome_Luogo: string
+  - identita_Utente
+}
+
+UTENTE "1" -- "n" ALBUM
+UTENTE -- FOTOGRAFIA
+ALBUM "n" -- "n" FOTOGRAFIA
+COORDINATE -- FOTOGRAFIA
+
+@enduml

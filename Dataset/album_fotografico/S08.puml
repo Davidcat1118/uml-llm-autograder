@@ -1,0 +1,38 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  - NOME: STRING
+  - PASSWORD: STRING
+  + CREAALBUM()
+}
+
+class ALBUM {
+  - NOME: STRING
+  - CREATORE: UTENTE
+  + AGGIUNGI()
+}
+
+class FOTOGRAFIA {
+  - TITOLO: STRING
+  - DATASCATTO
+  + AGGIUNGI PERSONA()
+}
+
+class LUOGO {
+  - LATITUDINE
+  - LONGITUDINE
+}
+
+class PERSONA {
+  - NOME
+}
+
+' Associazioni
+UTENTE "1" -- "0..*" ALBUM : CREA 
+FOTOGRAFIA "0..*" -- "0..1" LUOGO : SCATTATA IN 
+FOTOGRAFIA "0..*" -- "0..*" PERSONA : RAFFIGURA 
+
+ALBUM "0..*" -- "0..*" FOTOGRAFIA : CONTIENE
+
+@enduml

@@ -1,0 +1,47 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  - NOME
+  - PASSWORD
+  + ComponiAlbum()
+  + ComponiPersonale()
+  + ComponiLocalizzato()
+  + VisualizzaAlbum()
+}
+
+class "ALBUM FOTOGRAFICO" as AlbumFotografico {
+}
+
+class "ALBUM LOCALIZZATO" as AlbumLocalizzato {
+}
+
+class "ALBUM PERSONALE" as AlbumPersonale {
+}
+
+class FOTOGRAFIA {
+  - TITOLO
+}
+
+class LUOGO {
+  - Nome
+  - longitudine
+  - latitudine
+}
+
+' Relazioni di Ereditarietà
+AlbumFotografico <|-- AlbumLocalizzato
+AlbumFotografico <|-- AlbumPersonale
+
+' Associazioni
+UTENTE "1" -- "1..*" AlbumFotografico
+UTENTE "1" -- "1" FOTOGRAFIA : CREA 
+UTENTE "1" -- "0..*" FOTOGRAFIA : É PRESENTE 
+UTENTE "1" -- "0..*" AlbumPersonale
+AlbumLocalizzato "0..*" -- "1" LUOGO
+FOTOGRAFIA "1..*" -- "1" LUOGO
+
+' Composizione
+AlbumFotografico "1..*" *-- "1..*" FOTOGRAFIA
+
+@enduml

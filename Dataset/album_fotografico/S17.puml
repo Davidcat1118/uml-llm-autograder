@@ -1,0 +1,40 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  - NOME
+  - PASSWORD
+}
+
+class ALBUM {
+}
+
+class ALBUM_PER {
+  - UTENTE
+}
+
+class ALBUM_LOC {
+  - LUOGO
+}
+
+class FOTOGRAFIA {
+  - TITOLO
+}
+
+class LUOGO {
+  - LATITUDINE
+  - LONGITUDINE
+  - NOME
+}
+
+' Relazioni di Ereditarietà (indicate dal simbolo A)
+ALBUM <|-- ALBUM_PER
+ALBUM <|-- ALBUM_LOC
+
+' Associazioni
+UTENTE "1" -- "*" ALBUM
+UTENTE "*" -- "*" FOTOGRAFIA
+UTENTE "1" -- "*" FOTOGRAFIA
+ALBUM o-- FOTOGRAFIA
+
+@enduml

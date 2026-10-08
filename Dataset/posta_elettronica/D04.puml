@@ -1,0 +1,43 @@
+@startuml
+class UTENTE {
+  nome
+  cognome
+  codice Fiscale
+}
+
+class ACCOUNT {
+  login
+  password
+  indirizzoPosta
+}
+
+class MESSAGGIO {
+  testo
+  firma
+  mittente
+  destinatario
+}
+
+class MESSAGGIO_RICEVUTO
+class MESSAGGIO_INVIATO
+class MITTENTE
+class DESTINATARIO
+
+class CONTATTO {
+  indirizzoPostale
+  nome
+  cognome
+}
+
+UTENTE -- "1..*" ACCOUNT : gestisce >
+ACCOUNT *-- "1..*" CONTATTO
+
+MITTENTE -up-|> UTENTE
+DESTINATARIO -up-|> UTENTE
+
+MESSAGGIO_RICEVUTO -up-|> MESSAGGIO
+MESSAGGIO_INVIATO -up-|> MESSAGGIO
+
+MESSAGGIO -- MITTENTE
+MESSAGGIO -- DESTINATARIO
+@enduml

@@ -1,0 +1,55 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utente {
+  - nome
+  - cognome
+}
+
+class Account {
+  - indirizzo
+  - password
+  + login()
+}
+
+class Rubrica {
+}
+
+class Contatto {
+  - nome
+  - cognome
+  - indirizzo
+}
+
+class Messaggi_ricevuti {
+  - mittente
+  - destinatario
+}
+
+class Messaggi_inviati {
+  - mittente
+  - destinatario
+}
+
+class Messaggio {
+  - testo
+  - firma
+}
+
+' Associazioni principali
+Utente "1" -- "1..*" Account
+Utente "1" -- "1" Rubrica
+Account "1" -- "0..*" Messaggi_ricevuti
+Account "1" -- "0..*" Messaggi_inviati
+
+' Aggregazione
+Rubrica "1" o-- "0..*" Contatto
+
+' Associazione tra messaggi
+Messaggi_ricevuti "1" -- "1" Messaggi_inviati : + risponde >
+
+' Generalizzazioni
+Messaggi_ricevuti --|> Messaggio
+Messaggi_inviati --|> Messaggio
+
+@enduml

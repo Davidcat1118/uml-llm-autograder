@@ -1,0 +1,40 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utente {
+  - nome
+  - password
+  --
+  - può comporre un album aggiungendo foto che ha scattato nelle quali è raffigurata
+  - può vedere tutte gli album che ha creato
+  - può comporre un album localizzato con album personale
+}
+
+class Album {
+  - creatore
+}
+
+class Fotografia {
+  - autore
+  - titolo
+}
+
+class Luogo {
+  - latitudine
+  - longitudine
+  - nome
+}
+
+class AlbumPersonale {
+}
+
+class AlbumLocalizzato {
+}
+AlbumLocalizzato -up-|> Album
+AlbumPersonale -up-|> Album
+Utente "1" -- "*" Album 
+Album "*" -- "1..*" Fotografia
+Utente "*" -- "*" Fotografia : Raffigura
+Fotografia "1..*" -- "0..1" Luogo
+
+@enduml

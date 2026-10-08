@@ -1,0 +1,44 @@
+TESTO_GROUND_TRUTH = """
+@startuml
+skinparam classAttributeIconSize 0
+
+
+class Utente {
+    - nome: String
+    - password: String
+}
+
+class Fotografia {
+    - titolo: String
+}
+
+class Luogo {
+    - latitudine: float
+    - longitudine: float
+    - nomeMnemonico: String
+}
+
+class Album {
+}
+
+class AlbumPersonale {
+}
+
+class AlbumLocalizzato {
+}
+
+' Relazioni estratte
+Utente "1" -- "*" Album : crea >
+Utente "1" -- "*" Fotografia : scatta >
+Utente "*" -- "*" Fotografia : raffigurato in >
+
+Album "1" *-- "1..*" Fotografia : contiene >
+
+AlbumPersonale -up-|> Album
+AlbumLocalizzato -up-|> Album
+
+AlbumLocalizzato "*" -- "1" Luogo : localizzato in >
+AlbumPersonale "*" -- "1" Utente : riferito a >
+
+@enduml
+"""

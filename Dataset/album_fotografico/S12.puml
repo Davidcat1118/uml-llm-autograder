@@ -1,0 +1,45 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utente {
+  - nome: String
+  - password: String
+  + componiAlbum()
+  + aggiungiFoto()
+  + rendiSegreto()
+}
+
+class Album {
+  - tipo: TipoA
+}
+
+enum TipoA {
+  localizzato
+  personale
+}
+
+class Foto {
+  - autore: String
+  - Titolo: String
+}
+
+class Luogo {
+  - nomeL: String
+  - latitudine: int
+  - longitudine: int
+}
+
+class AlbumSegreto {
+}
+
+Album -- TipoA
+Utente "1" -- "*" Album 
+Album "*" -- "*" Foto 
+Utente "*" -- "*" Foto 
+Foto "1" -- "1" Luogo 
+AlbumSegreto "1" -- "1" Utente
+AlbumSegreto "1" -- "*" Foto
+
+AlbumSegreto -- Album
+
+@enduml

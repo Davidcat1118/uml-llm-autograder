@@ -1,0 +1,55 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+}
+
+class MITTENTE {
+  inviaMsg(String dest)
+}
+
+class DESTINATARIO {
+  riceviMessg()
+}
+
+class MESSAGGIO {
+  - mittente : String
+  - destinat : String
+  - testo : String
+  - firma : String
+  - rispostaR : boolean
+  - rispostaI : boolean
+}
+
+class ACC_POSTA_ELET {
+  - login : String
+  - password : String
+}
+
+class INDIRIZZO_POSTA_E {
+  - email : String
+}
+
+class CONTATTO {
+  - nomeContatto : String
+  - indirizzo_posta : String
+}
+
+class RUBRICA {
+  - nomeContatto : String
+  - cognContatto : String
+  - emailContatto : String
+}
+
+
+' Associazioni e Composizioni
+UTENTE -- MITTENTE
+UTENTE -- DESTINATARIO
+UTENTE "1" -- "1..*" ACC_POSTA_ELET
+ACC_POSTA_ELET "1" -- "1" INDIRIZZO_POSTA_E
+INDIRIZZO_POSTA_E "1..*" -- "1" CONTATTO
+MITTENTE "1" -- "*" MESSAGGIO
+DESTINATARIO "1..*" -- "1" MESSAGGIO
+RUBRICA "1" --* "1..*" CONTATTO
+
+@enduml

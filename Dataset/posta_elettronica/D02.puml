@@ -1,0 +1,49 @@
+@startuml
+
+
+class UTENTE {
+  Nome
+  Cognome
+}
+
+class ACCOUNT {
+  login
+  PASSWORD
+}
+
+class MESSAGGIO {
+}
+
+class MESSAGGIORICEVUTO {
+}
+
+class MESSAGGIOINVIATO {
+}
+
+class RUBRICA {
+}
+
+class CONTATTO {
+  Nome
+  Cognome
+}
+
+class "INDIRIZZO EMAIL" as INDIRIZZO_EMAIL {
+  Nome
+}
+
+' Associazioni e Composizioni/Aggregazioni
+UTENTE "1..*" -- "1" ACCOUNT
+UTENTE -- MESSAGGIO
+UTENTE "1" *-- "1" RUBRICA
+RUBRICA "1" o-- "*" CONTATTO
+CONTATTO "1" -- "1..*" INDIRIZZO_EMAIL
+
+' Relazioni di Ereditarietà
+MESSAGGIO <|-- MESSAGGIORICEVUTO
+MESSAGGIO <|-- MESSAGGIOINVIATO
+
+' Relazione tra sottoclassi
+MESSAGGIORICEVUTO -- MESSAGGIOINVIATO : (RISPOSTA)
+
+@enduml

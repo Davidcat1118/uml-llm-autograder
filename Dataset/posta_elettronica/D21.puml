@@ -1,0 +1,34 @@
+@startuml
+' Elaborato Studente: Arcangelo Melito DE1000171
+
+class utente {
+}
+
+class ACCOUNT {
+  PASSWORD: STRING
+  EMAIL: STRING
+  LOGIN()
+  INVIA MESS()
+  CONTROLLA MESS()
+}
+
+class MESSAGGI {
+  TESTO : STRING
+  FIRMA : STRING
+  MITTENTE : STRING
+  DESTINATARI : STRING
+}
+
+class RUBRICA {
+  CONTATTI : STRING
+  NOME : STRING
+  COGNOME : STRING
+  EMAIL : STRING
+}
+
+' Associazioni con relative molteplicità trascritte fedelmente
+utente "1" -- "1..*" ACCOUNT
+ACCOUNT "1" -- "1..*" MESSAGGI
+MESSAGGI "1" -- "1" RUBRICA
+
+@enduml

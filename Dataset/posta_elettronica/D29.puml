@@ -1,0 +1,47 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class ACCOUNT {
+  - Login
+  - Password
+}
+
+class INDIRIZZO {
+  - Email
+}
+
+class CONTATTO {
+  - Nome
+  - Cognome
+}
+
+class MESSAGGIO_RICEVUTO {
+}
+
+class MESSAGGIO_INVIATO {
+}
+
+class MESSAGGIO {
+  - Testo
+  - Firma
+  - Destinatario
+  - Mittente
+}
+
+' Composizioni
+ACCOUNT *-- "1..1" INDIRIZZO
+CONTATTO  *-- "1..*" INDIRIZZO
+
+' Associazioni
+ACCOUNT "1..1" -- "1..*" MESSAGGIO_RICEVUTO
+ACCOUNT "1..1" -- "1..*" MESSAGGIO_INVIATO
+
+MESSAGGIO "1..*" -- "1..*" INDIRIZZO : Mail Correlate >
+MESSAGGIO "1" -- "1" MESSAGGIO : Risposta >
+
+' Generalizzazione con vincolo
+MESSAGGIO_RICEVUTO -up-|> MESSAGGIO
+MESSAGGIO_INVIATO -up-|> MESSAGGIO
+note bottom of MESSAGGIO : { totale, disgiunta }
+
+@enduml

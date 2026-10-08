@@ -1,0 +1,60 @@
+"""
+@startuml
+' Trascrizione fedele del diagramma fornito
+
+class Rubrica {
+}
+
+class Contatto {
+  -nome
+  -cognome
+}
+
+class Indirizzo {
+  -indirizzo
+}
+
+class Utente {
+}
+
+class Account {
+  -login
+  -password
+  -indirizzo
+}
+
+class MessaggioRicevuto {
+}
+
+class MessaggioInviato {
+}
+
+class Messaggio {
+  -testo
+  -firma
+}
+
+' Aggregazione e Associazioni principali
+Rubrica o-- "*" Contatto
+Contatto "1" -- "1..*" Indirizzo
+Utente "1" -- "1..*" Account
+
+' Associazioni tra Indirizzo e i Messaggi
+Indirizzo "1" -- "*" MessaggioRicevuto : mittente
+Indirizzo "*" -- "*" MessaggioRicevuto : altroDestinatario
+Indirizzo "1..*" -- "*" MessaggioInviato : destinatario
+
+' Associazioni tra Account e i Messaggi
+Account "1" -- "*" MessaggioRicevuto : destinatario
+Account "1" -- "*" MessaggioInviato : mittente
+
+' Associazioni incrociate (risposte) tra i Messaggi
+MessaggioRicevuto "0..1" -- "1" MessaggioInviato : risposta
+MessaggioRicevuto "1" -- "0..1" MessaggioInviato : risposta
+
+' Relazioni di Ereditarietà verso la superclasse Messaggio
+MessaggioRicevuto --|> Messaggio
+MessaggioInviato --|> Messaggio
+
+@enduml
+"""

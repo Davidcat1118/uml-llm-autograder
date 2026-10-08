@@ -1,0 +1,1192 @@
+{
+    "S01": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi specializzate AlbumPersonale e AlbumLocalizzato, sostituite da un enum improprio."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le relazioni di ereditarietà sono assenti; l'uso di un enum viola la struttura gerarchica richiesta."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Assenza totale di relazioni di generalizzazione/specializzazione."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Molteplicità mancanti o errate (es. aggregazione tra Album e Fotografia non conforme)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di chiavi esterne (FK) e logica di database relazionale non pertinente in un diagramma di classi UML."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "I metodi inseriti riflettono una logica procedurale anziché le responsabilità di dominio."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "L'uso di un enum per gestire i tipi di album impedisce la corretta modellazione delle responsabilità specifiche."
+            },
+            "totale_errori_unina": 7
+        },
+        "osservazioni_fuzzy_matching": "Lo studente ha prodotto un modello di tipo 'Database Schema' invece di un 'Class Diagram' UML. L'approccio è fortemente influenzato dal modello relazionale (FK, PK, tipi di dato) e ignora i principi della programmazione a oggetti richiesti (ereditarietà, polimorfismo)."
+    },
+    "S02": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Lo studente ha introdotto classi non presenti nel modello (AlbumFotografico, Enum) e ha omesso la gerarchia di ereditarietà richiesta."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le relazioni sono state semplificate in modo errato; manca la specializzazione di Album e le associazioni tra Album e Utente/Luogo sono state alterate."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Assenza totale della gerarchia di ereditarietà (AlbumPersonale, AlbumLocalizzato) richiesta dal modello di riferimento."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le molteplicità sono errate o non conformi alla logica di dominio richiesta (es. Utente-Album)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Gli attributi non corrispondono al modello di riferimento; sono stati aggiunti attributi non richiesti e omessi quelli definiti."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo richiesto nel modello di riferimento, quindi non vi sono errori di omissione."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "La struttura logica non rispetta la separazione delle responsabilità tra AlbumPersonale e AlbumLocalizzato."
+            },
+            "totale_errori_unina": 6
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma dello studente presenta una struttura radicalmente diversa dal modello di riferimento. L'uso di enumerazioni al posto della gerarchia di ereditarietà (polimorfismo) è un errore concettuale grave in Ingegneria del Software. La modellazione degli attributi e delle relazioni è approssimativa e non rispetta i requisiti del dominio forniti."
+    },
+    "S03": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Tutte le classi essenziali sono presenti."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Mancano le associazioni tra Utente e Fotografia (raffigurato in), AlbumLocalizzato e Luogo, e AlbumPersonale e Utente."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono corrette."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le molteplicità sono incomplete o errate rispetto al modello di riferimento (es. associazione Album-Fotografia)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti o errati (es. 'creatore' in Album, 'autore' in Fotografia) che violano la normalizzazione del modello."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Inserimento di metodi non richiesti nel dominio e non presenti nel diagramma di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Mancata etichettatura dei ruoli nelle associazioni e confusione nella gestione delle responsabilità."
+            },
+            "totale_errori_unina": 5
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma presenta una struttura di base corretta ma fallisce nella modellazione delle relazioni specifiche (es. AlbumLocalizzato-Luogo) e introduce attributi ridondanti che denotano una scarsa comprensione della normalizzazione dei dati nel dominio."
+    },
+    "S04": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi leggermente differenti rispetto alla Ground Truth."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni sono errate: l'associazione tra Utente e Fotografia è molti-a-molti (invece di 1-a-molti per 'scatta'), e mancano le associazioni specifiche tra AlbumLocalizzato/Luogo e AlbumPersonale/Utente."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "La gerarchia di ereditarietà tra Album e le sue specializzazioni è corretta."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Molte cardinalità sono omesse o errate rispetto al modello di riferimento."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti (es. 'Autore' e 'Luogo' dentro Fotografia) che violano la normalizzazione del modello."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Inserimento di metodi non richiesti nel dominio e non coerenti con un diagramma di classe strutturale."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Le responsabilità sono confuse; la logica di creazione degli album è delegata erroneamente alla classe Fotografia."
+            },
+            "totale_errori_unina": 5
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma presenta una struttura logica divergente dalla Ground Truth. L'uso di attributi come chiavi esterne (es. 'Autore' in Fotografia) indica una modellazione di tipo database relazionale piuttosto che orientata agli oggetti. La gestione delle relazioni tra Album specializzati e le entità correlate (Luogo/Utente) è assente."
+    },
+    "S05": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene la struttura sia stata semplificata tramite un enum invece dell'ereditarietà."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "L'associazione tra Fotografia e Luogo è diretta, mentre nel modello di riferimento è mediata dall'AlbumLocalizzato. Manca la relazione di composizione corretta."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Assenza totale di relazioni di generalizzazione (ereditarietà), sostituite impropriamente da un attributo di tipo enum."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Molteplicità mancanti o errate in diverse associazioni (es. Album-Fotografia)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi non richiesti (data, autori) e mancanza di coerenza con il dominio definito nel Ground Truth."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo richiesto nel modello di riferimento, quindi l'assenza è conforme."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "La logica di dominio è alterata dall'uso di un enum, perdendo la specializzazione semantica tra AlbumPersonale e AlbumLocalizzato."
+            },
+            "totale_errori_unina": 5
+        },
+        "osservazioni_fuzzy_matching": "Lo studente ha adottato un approccio procedurale/piatto invece di utilizzare il polimorfismo e l'ereditarietà richiesti dal modello di riferimento. L'uso di un enum per gestire i tipi di album viola i principi di progettazione orientata agli oggetti richiesti per questo esercizio."
+    },
+    "S06": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi essenziali sono presenti, sebbene con nomi leggermente differenti rispetto al modello di riferimento."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "L'associazione tra FOTOGRAFIA e LUOGO non è presente nel modello di riferimento; inoltre, la relazione tra UTENTE e FOTOGRAFIA è modellata in modo ridondante e non conforme."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono correttamente implementate."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità tra UTENTE e FOTOGRAFIA sono errate rispetto al modello di riferimento (1..* vs 1)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Mancano i tipi di dato per gli attributi e la nomenclatura non è coerente con il modello di riferimento."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Il modello di riferimento non prevede metodi, mentre lo studente ha inserito operazioni non richieste."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "L'assegnazione delle responsabilità è confusa, in particolare l'aggiunta di metodi non necessari e associazioni non previste."
+            },
+            "totale_errori_unina": 5
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma presenta una struttura di base corretta per quanto riguarda le classi e le generalizzazioni, ma fallisce significativamente nell'aderenza alle specifiche di associazione e cardinalità. L'aggiunta di metodi non richiesti e di una relazione diretta tra Fotografia e Luogo (non presente nel ground truth) devia dal modello atteso."
+    },
+    "S07": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi specializzate AlbumPersonale e AlbumLocalizzato; Luogo è modellato come enum invece che come classe."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni sono semplificate e non riflettono la struttura richiesta (es. manca la relazione tra AlbumPersonale e Utente)."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Assenza totale delle relazioni di ereditarietà richieste."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Molteplicità mancanti o errate rispetto al modello di riferimento."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti che rappresentano associazioni (es. 'creatore' in Album, 'Autore' in Fotografia)."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo richiesto nel modello di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Le responsabilità sono confuse a causa dell'uso improprio di attributi per gestire le relazioni."
+            },
+            "totale_errori_unina": 6
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma dello studente presenta un approccio orientato ai dati (data-centric) piuttosto che orientato agli oggetti (UML). L'uso di attributi per definire le relazioni (es. 'creatore: Utente') viola i principi di modellazione UML, dove le relazioni devono essere espresse tramite associazioni. La struttura gerarchica degli album è stata completamente omessa."
+    },
+    "S08": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi AlbumPersonale e AlbumLocalizzato; è stata introdotta la classe Persona non prevista nel dominio."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra Album e Utente sono gestite tramite attributo invece che tramite relazione; mancano le relazioni di localizzazione specifiche."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Assenza totale della gerarchia di ereditarietà richiesta per gli Album."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le molteplicità sono imprecise o non conformi al modello di riferimento (es. 0..* invece di 1..* per il contenuto dell'album)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Attributi mancanti (nomeMnemonico in Luogo) e ridondanti (Creatore in Album, DataScatto in Fotografia)."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "I metodi inseriti non corrispondono alle responsabilità del dominio e non erano richiesti dal modello di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "La struttura non riflette la distinzione tra AlbumPersonale e AlbumLocalizzato, alterando le responsabilità del sistema."
+            },
+            "totale_errori_unina": 7
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma dello studente presenta una struttura radicalmente diversa da quella richiesta. L'approccio è orientato all'implementazione (attributi come chiavi esterne) piuttosto che alla modellazione concettuale UML. Manca completamente la gerarchia di ereditarietà e le classi specializzate per gli album."
+    },
+    "S09": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi AlbumPersonale e AlbumLocalizzato; la classe Album è stata rinominata in modo improprio."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le relazioni di composizione tra Album e Fotografia sono state sostituite da associazioni generiche; mancano le relazioni di ereditarietà."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Assenza totale delle relazioni di generalizzazione richieste."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le molteplicità non riflettono i vincoli di dominio richiesti (es. 1..* per la composizione)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti o errati (es. 'luogo' in Fotografia invece di una relazione, 'creatore' in Album)."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo richiesto nel modello di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "La struttura non modella correttamente le responsabilità tra Album specializzati e Utente."
+            },
+            "totale_errori_unina": 6
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma dello studente presenta una struttura semplificata che ignora completamente la gerarchia di ereditarietà richiesta per gli Album e utilizza attributi al posto di relazioni di associazione, violando i principi di modellazione a oggetti."
+    },
+    "S10": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "L'uso di enumerazioni al posto di classi per Luogo e Album viola la struttura del dominio richiesta."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni sono generiche e non riflettono le relazioni di composizione e specializzazione richieste."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Assenza totale di relazioni di ereditarietà (generalizzazione)."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le molteplicità sono errate o mancanti rispetto alla semantica del dominio."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti (es. Autore/Creatore come attributi invece di associazioni) e tipi non conformi."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo richiesto esplicitamente nel modello di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Le responsabilità sono confuse; l'uso di attributi per gestire relazioni rompe l'incapsulamento."
+            },
+            "totale_errori_unina": 6
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma dello studente presenta un approccio procedurale/basato su dati invece di un modello a oggetti. L'uso di Enum per modellare entità complesse come Album e Luogo è un errore concettuale grave. Le relazioni di ereditarietà sono state ignorate e le associazioni non rispettano la semantica di composizione richiesta."
+    },
+    "S11": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Tutte le classi fondamentali sono presenti, sebbene con nomi leggermente differenti (Personale/Localizzato invece di AlbumPersonale/AlbumLocalizzato)."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "L'associazione tra Fotografia e Luogo è modellata come ereditarietà, il che è semanticamente errato. Inoltre, le associazioni sono implementate tramite attributi ridondanti (es. 'Creatore' in Album) invece di relazioni UML."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le generalizzazioni tra Album e le sue specializzazioni sono corrette."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Mancano le molteplicità su diverse associazioni (es. Album-Fotografia, Album-Personale)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi che rappresentano relazioni (es. 'Creatore', 'Soggetto', 'Autore') che violano i principi di modellazione UML, rendendo il diagramma un ibrido tra codice e modello."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "I metodi inseriti non erano richiesti dal dominio e non sono presenti nel modello di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "L'uso di attributi per gestire le relazioni confonde le responsabilità e la struttura logica del sistema."
+            },
+            "totale_errori_unina": 5
+        },
+        "osservazioni_fuzzy_matching": "Lo studente ha confuso la modellazione UML con l'implementazione in codice (es. uso di ArrayList, metodi, attributi per le relazioni). La relazione tra Fotografia e Luogo è errata (ereditarietà invece di associazione)."
+    },
+    "S12": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi AlbumPersonale e AlbumLocalizzato, sostituite impropriamente da un enum e una classe non coerente con il dominio."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le relazioni tra Album e Foto sono generiche (molti-a-molti) invece di composizione; la relazione tra Foto e Luogo è errata (1-a-1 invece di opzionale)."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Mancano le generalizzazioni corrette tra Album e le sue specializzazioni; AlbumSegreto non è una specializzazione di Album nel modello."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Molteplicità mancanti o errate in diverse associazioni critiche."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Attributi errati (es. latitudine/longitudine come int invece di float) e ridondanti (autore in Foto)."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Inserimento di metodi non richiesti nel dominio e assenza di una chiara distinzione tra responsabilità."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "L'uso di un enum per gestire la tipologia di album viola i principi di modellazione a oggetti (sostituzione con ereditarietà)."
+            },
+            "totale_errori_unina": 7
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma dello studente presenta gravi lacune strutturali. L'approccio basato su un enum per distinguere i tipi di album è concettualmente errato rispetto alla richiesta di utilizzare l'ereditarietà. La modellazione delle relazioni è approssimativa e non rispetta i vincoli di composizione richiesti."
+    },
+    "S13": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi leggermente differenti."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "L'associazione tra Album e Fotografia è errata (1:1 invece di 1:N) e manca la relazione tra AlbumLocalizzato e Luogo."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono corrette."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità tra Album e Fotografia sono errate rispetto al modello di riferimento."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Gli attributi sono definiti in modo impreciso (mancano i tipi) e sono presenti attributi non richiesti (id Creatore) o posizionati erroneamente (autore in Fotografia)."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Sono stati inseriti metodi non richiesti dal modello di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "La logica di associazione tra Luogo e Fotografia è errata; nel modello di riferimento il Luogo è legato all'AlbumLocalizzato."
+            },
+            "totale_errori_unina": 5
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma presenta diverse inesattezze strutturali, in particolare nella gestione della localizzazione e nella cardinalità tra Album e Fotografia. L'aggiunta di metodi non richiesti e la gestione impropria degli attributi indicano una comprensione parziale del dominio."
+    },
+    "S14": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi differenti e l'aggiunta di un enum non richiesto."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni sono errate: manca la relazione di composizione tra Album e Fotografia, la relazione tra Utente e Album è assente, e la relazione tra AlbumLocalizzato/Personale e le entità di riferimento è mancante."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono correttamente modellate."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le molteplicità sono in gran parte assenti o errate rispetto al dominio richiesto."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Gli attributi sono inseriti in modo confuso, includendo logica di business (metodi) all'interno della sezione attributi."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Le operazioni sono inserite erroneamente come attributi e non riflettono le responsabilità del sistema."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "L'assegnazione delle responsabilità è errata, in particolare lo scambio di logica tra AlbumPersonale e AlbumLocalizzato."
+            },
+            "totale_errori_unina": 5
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma presenta gravi lacune strutturali. Lo studente ha confuso attributi e metodi, ha omesso relazioni fondamentali (composizione Album-Fotografia) e ha invertito la logica di business tra AlbumPersonale e AlbumLocalizzato. La nomenclatura non segue le convenzioni standard."
+    },
+    "S15": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi leggermente differenti (Foto vs Fotografia)."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Mancano le associazioni tra Utente e Foto (scatta/raffigurato) e la relazione tra AlbumPersonale e Utente."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono corrette."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Molte cardinalità sono omesse nelle associazioni tra Album, Foto e Luogo."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti (es. Creatore in Album, Autore in Foto) che dovrebbero essere gestiti tramite associazioni."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Inserimento di metodi non richiesti nel dominio e assenza di una modellazione basata solo su dati strutturali."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Mancano le etichette dei ruoli sulle associazioni."
+            },
+            "totale_errori_unina": 5
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma dello studente confonde la modellazione dei dati (Class Diagram) con la modellazione comportamentale, inserendo metodi e attributi ridondanti che dovrebbero essere rappresentati tramite relazioni. La struttura delle classi è accettabile, ma la logica delle associazioni è incompleta rispetto alla Ground Truth."
+    },
+    "S16": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Tutte le classi del dominio sono presenti."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Associazione tra Fotografia e Luogo errata: nel modello di riferimento AlbumLocalizzato è collegato a Luogo, non direttamente la Fotografia."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono corrette."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Mancano le molteplicità su diverse associazioni (es. Utente-Album) e sono errate su altre."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Attributi errati: 'creatore' in Album e 'autore' in Fotografia sono ridondanti o mal modellati rispetto alle associazioni."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Lo studente ha inserito requisiti funzionali come metodi, violando la semantica del diagramma delle classi."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Mancano i ruoli nelle associazioni e la logica di navigabilità è confusa."
+            },
+            "totale_errori_unina": 5
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma presenta una confusione tra requisiti funzionali (inseriti come metodi) e struttura statica. La modellazione della localizzazione è errata rispetto al dominio richiesto, poiché lega il luogo alla fotografia invece che all'album localizzato."
+    },
+    "S17": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi leggermente differenti."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "L'associazione tra Album e Fotografia è definita come aggregazione (o--) invece di composizione (*--). Manca la relazione tra AlbumLocalizzato e Luogo, e tra AlbumPersonale e Utente."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono corrette."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Mancano le molteplicità nelle relazioni di aggregazione e nelle relazioni di ereditarietà derivate."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Gli attributi sono definiti in modo errato all'interno delle classi (es. inserimento di classi come attributi in Album_Per e Album_Loc invece di usare associazioni)."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo richiesto nel modello di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Le responsabilità sono confuse a causa dell'uso improprio degli attributi per modellare le relazioni."
+            },
+            "totale_errori_unina": 4
+        },
+        "osservazioni_fuzzy_matching": "Lo studente ha confuso la modellazione delle relazioni (associazioni) con la definizione di attributi all'interno delle classi (es. 'ALBUM_PER' contiene 'UTENTE' come attributo invece di una relazione). La composizione tra Album e Fotografia è stata declassata ad aggregazione."
+    },
+    "S18": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Tutte le classi richieste sono presenti."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "L'associazione tra Fotografia e Luogo è diretta, mentre nel modello di riferimento è mediata tramite AlbumLocalizzato."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono corrette."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le molteplicità sono parzialmente errate, in particolare la relazione tra Album e Fotografia e la mancanza di vincoli specifici."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi non richiesti (nome, numeroFoto in Album) e nomi di attributi non conformi (nome_mnemonico vs nomeMnemonico)."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo richiesto nel modello di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "L'uso di etichette non standard e la struttura delle associazioni deviano dal modello di riferimento."
+            },
+            "totale_errori_unina": 4
+        },
+        "osservazioni_fuzzy_matching": "Lo studente ha introdotto attributi ridondanti in Album e ha alterato la topologia delle relazioni (in particolare il legame diretto Fotografia-Luogo). La nomenclatura degli attributi non rispetta lo standard camelCase richiesto."
+    },
+    "S19": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "La classe 'Fotografia' è stata rinominata in 'Foto', discostandosi dal modello di riferimento."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "La relazione tra Foto e Luogo è diretta, mentre nel modello di riferimento è mediata tramite AlbumLocalizzato."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono corrette."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le molteplicità sono imprecise (es. 0..* invece di 1..* per la composizione Album-Foto)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di errori di battitura (latitudim, nomi) e inserimento improprio di classi come attributi (Utente, Luogo) dentro le sottoclassi di Album."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Inserimento di un metodo non richiesto (addfoto) e mancanza di tipizzazione degli attributi."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "L'uso di classi come attributi viola i principi di modellazione UML corretta, confondendo le associazioni con gli attributi."
+            },
+            "totale_errori_unina": 6
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma presenta diverse criticità strutturali. L'errore più grave è l'inserimento di classi (Utente, Luogo) come attributi all'interno di AlbumPersonale e AlbumLocalizzato, invece di utilizzare le associazioni già correttamente modellate. Si riscontrano inoltre errori di battitura nei nomi degli attributi e una scarsa attenzione alla tipizzazione dei dati."
+    },
+    "S20": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Il diagramma dello studente è vuoto o non è stato fornito."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Assenti le relazioni strutturali richieste."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Assenti le relazioni di ereditarietà."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Assenti le molteplicità."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Assenti gli attributi di dominio."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo richiesto nel modello di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Assente la definizione dei ruoli."
+            },
+            "totale_errori_unina": 6
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma sottomesso risulta mancante. Non è possibile effettuare alcuna valutazione strutturale."
+    },
+    "S21": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Tutte le classi principali sono presenti, sebbene con nomi leggermente differenti."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni sono errate: manca la relazione tra Utente e Fotografia (raffigurato), la relazione tra AlbumPersonale e Utente è modellata in modo errato e la relazione tra AlbumLocalizzato e Luogo è imprecisa."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono corrette."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le molteplicità sono errate (es. 1..* su Utente per la creazione di Album, quando dovrebbe essere 1)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti o errati (es. 'autore' in Album, 'numFoto' in Album, 'luogo' in Localizzato) che violano la normalizzazione del modello."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo richiesto nel diagramma di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Le responsabilità sono confuse, specialmente nell'uso di attributi al posto delle associazioni per collegare entità come Luogo e Utente."
+            },
+            "totale_errori_unina": 4
+        },
+        "osservazioni_fuzzy_matching": "Il modello dello studente presenta una scarsa comprensione della modellazione a oggetti, preferendo l'uso di attributi (es. 'luogo: String' in LOCALIZZATO) al posto delle associazioni tra classi. Le cardinalità sono state invertite o modificate arbitrariamente rispetto al dominio richiesto."
+    },
+    "S22": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Manca la classe Luogo, le cui informazioni sono state erroneamente incorporate come attributi nella classe Fotografia."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Associazione tra Album e Luogo mancante; associazione tra Fotografia e Album invertita rispetto alla composizione richiesta."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Corrette le relazioni di ereditarietà tra Album e le sue specializzazioni."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Molteplicità errate o mancanti in diverse associazioni (es. Fotografia-Album)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Attributi di Luogo (latitudine, longitudine, mnemonica) inseriti erroneamente in Fotografia; mancano i tipi dato."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Inserimento di metodi non richiesti e non coerenti con il modello strutturale di dominio."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Responsabilità mal distribuite, in particolare la gestione della localizzazione che dovrebbe risiedere nella classe Luogo."
+            },
+            "totale_errori_unina": 6
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma presenta gravi errori di modellazione concettuale. La fusione della classe Luogo all'interno di Fotografia viola il principio di normalizzazione del dominio. Le relazioni sono state implementate in modo approssimativo, perdendo la semantica di composizione (Composition) richiesta dal Ground Truth."
+    },
+    "S23": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi leggermente differenti."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Associazioni errate: manca la relazione tra Utente e Fotografia, e la relazione tra Fotografia e Luogo è errata (nel modello di riferimento è tra AlbumLocalizzato e Luogo)."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono corrette."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Molteplicità mancanti o errate in diverse associazioni."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti o errati (es. Creatore in Album, Autore in Fotografia) e nomi non conformi al modello di riferimento."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Inserimento di metodi non richiesti nel diagramma strutturale e non coerenti con il dominio."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Mancata etichettatura dei ruoli e responsabilità non allineate al modello di riferimento."
+            },
+            "totale_errori_unina": 5
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma presenta una struttura logica divergente rispetto al modello di riferimento. L'aggiunta di metodi non necessari e l'errata modellazione della relazione tra Luogo e Fotografia/Album indicano una comprensione parziale dei requisiti strutturali."
+    },
+    "S24": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi leggermente differenti."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "L'associazione tra Fotografia e Luogo è errata (1:1 invece di *:*), manca la relazione 'raffigurato in' tra Utente e Fotografia."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono correttamente modellate."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le molteplicità sono errate in diverse relazioni, in particolare tra Fotografia e Luogo."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti (es. 'Creatore' in Album, 'Autore' in Fotografia) che dovrebbero essere rappresentati tramite associazioni."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo richiesto esplicitamente nel modello di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "L'uso di attributi per gestire le relazioni viola i principi di modellazione UML, confondendo la struttura dati con le associazioni."
+            },
+            "totale_errori_unina": 4
+        },
+        "osservazioni_fuzzy_matching": "Lo studente ha confuso la modellazione orientata agli oggetti con la definizione di strutture dati (es. inserire 'Creatore' come attributo invece di usare un'associazione). La relazione tra Fotografia e Luogo è stata semplificata erroneamente."
+    },
+    "S25": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi specializzate AlbumPersonale e AlbumLocalizzato, sostituite da una classe generica con attributo di tipologia."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "L'associazione tra Album e Fotografia è definita come aggregazione (o--) invece della composizione richiesta; mancano le associazioni specifiche per AlbumPersonale e AlbumLocalizzato."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Assenza totale della gerarchia di ereditarietà richiesta per gli Album."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità sono incomplete o errate rispetto al modello di riferimento (es. associazione Utente-Fotografia)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti (es. Creatore/luogo dentro Fotografia) che violano la normalizzazione del modello UML."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessuna operazione definita in entrambi i modelli."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "La gestione delle responsabilità è delegata ad attributi invece che a relazioni strutturali tra classi."
+            },
+            "totale_errori_unina": 6
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma dello studente adotta un approccio basato su attributi (data-driven) invece di un approccio orientato agli oggetti (class-driven). La mancanza di ereditarietà e l'uso improprio di aggregazione al posto della composizione rendono il modello non conforme alle specifiche di dominio fornite."
+    },
+    "S26": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi specializzate AlbumPersonale e AlbumLocalizzato, essenziali per la gerarchia richiesta."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "L'associazione tra Fotografia e Luogo è diretta, mentre la specifica richiedeva che fosse mediata tramite AlbumLocalizzato."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Assente la gerarchia di ereditarietà tra Album e le sue sottoclassi."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le molteplicità sono imprecise (es. 0..* invece di 1..* per il contenuto dell'album) e non riflettono i vincoli di dominio."
+            },
+            "5_attributi": {
+                "score": 0,
+                "motivo": "Gli attributi sono correttamente definiti, sebbene con lievi variazioni di naming."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Sono stati inseriti metodi non richiesti nel modello strutturale, che dovrebbe focalizzarsi sulle proprietà e non sul comportamento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "L'uso di un'aggregazione semplice invece di una composizione e la mancanza di ruoli specifici rendono la struttura meno rigorosa."
+            },
+            "totale_errori_unina": 6
+        },
+        "osservazioni_fuzzy_matching": "Lo studente ha interpretato il diagramma in modo troppo orientato al comportamento (metodi) e ha omesso la gerarchia di ereditarietà richiesta, semplificando eccessivamente la logica di localizzazione degli album."
+    },
+    "S27": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi Luogo e Fotografia è modellata in modo errato con attributi ridondanti."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Associazioni errate: la relazione tra Utente e Fotografia è incompleta e manca la relazione di composizione."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le generalizzazioni sono corrette."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Molteplicità mancanti o errate in diverse associazioni."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Attributi ridondanti e non conformi al dominio (es. Luogo dentro Fotografia, riferimenti a nomi invece di oggetti)."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo richiesto nel modello di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Responsabilità mal distribuite, uso improprio di Enum per gestire l'ereditarietà."
+            },
+            "totale_errori_unina": 5
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma dello studente presenta gravi errori di modellazione concettuale. L'uso di attributi per simulare relazioni (es. 'Luogo lat' dentro Fotografia) viola i principi di normalizzazione UML. La gestione delle sottoclassi di Album tramite un Enum è ridondante rispetto alla gerarchia definita. Manca la classe Luogo, fondamentale per il dominio."
+    },
+    "S28": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi leggermente differenti (Foto vs Fotografia, AlbumPers vs AlbumPersonale)."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni sono semplificate e mancano i ruoli espliciti richiesti. La relazione tra Album e Foto è modellata come associazione semplice invece di composizione."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Le relazioni di ereditarietà non sono correttamente tipizzate (manca la freccia di generalizzazione UML standard)."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità sono incomplete o errate rispetto al dominio (es. relazione Foto-Luogo)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Gli attributi sono inseriti in modo improprio, mescolando attributi di dominio con riferimenti ad altre classi (es. 'Album' dentro 'Utente')."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "I metodi inseriti non corrispondono alle responsabilità di dominio e includono implementazioni tecniche non richieste (es. 'Foto DAO')."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Mancano le etichette dei ruoli sulle associazioni e la struttura riflette una confusione tra attributi e relazioni."
+            },
+            "totale_errori_unina": 6
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma dello studente presenta gravi lacune nella sintassi UML (generalizzazioni non corrette) e confonde la modellazione dei dati (attributi) con le relazioni tra classi. La struttura è più vicina a un diagramma di implementazione che a un diagramma di classe concettuale."
+    },
+    "S29": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi Luogo, AlbumPersonale e AlbumLocalizzato; presenza di un enum non richiesto e non coerente con il dominio."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le relazioni sono errate: manca la composizione tra Album e Fotografia, le relazioni tra Album e le sottoclassi sono gestite tramite attributi impropri."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Assenza totale delle relazioni di ereditarietà tra Album e le sue specializzazioni."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Molteplicità mancanti o errate (es. n-n tra Album e Fotografia invece di 1-1..*)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Attributi ridondanti o errati (es. CREATORE in Album, identita_Utente in Fotografia) che violano il principio di incapsulamento e normalizzazione."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Metodi inseriti arbitrariamente nella classe Utente non previsti dal modello di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Responsabilità mal distribuite; il modello non riflette la struttura gerarchica richiesta."
+            },
+            "totale_errori_unina": 7
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma dello studente presenta gravi lacune strutturali. Ha tentato di modellare le relazioni tramite attributi (es. CompLocale, CompPersonale) invece di utilizzare le relazioni di ereditarietà e composizione previste. La struttura è piatta e non conforme al dominio di riferimento."
+    },
+    "S30": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi differenti e alcune classi di astrazione mancanti."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni sono errate: la relazione tra Fotografia e Luogo è diretta invece di passare per AlbumLocalizzato, e mancano le relazioni di 'raffigurato in'."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "La gerarchia di ereditarietà è correttamente implementata."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le molteplicità sono semplificate e non riflettono i vincoli di dominio richiesti (es. 1..* per il contenuto dell'album)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti (es. 'creatore' e 'foto' in AlbumFoto) e tipi di dato errati (int invece di float per coordinate)."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo richiesto nel diagramma di riferimento, quindi non valutabile come errore."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "L'uso di attributi per modellare relazioni (es. 'soggetto: Luogo') viola i principi di modellazione UML strutturale."
+            },
+            "totale_errori_unina": 4
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma dello studente presenta una modellazione basata su attributi invece che su associazioni UML standard. La struttura logica è compromessa dall'uso di attributi per definire le relazioni tra classi (es. 'soggetto: Luogo' dentro la classe LOCALIZZATO)."
+    },
+    "S31": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Nomi delle classi non conformi al dominio (es. ALBUM FOTOGRAFICO invece di Album) e aggiunta di classi non richieste."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Associazione tra Fotografia e Luogo errata: nel modello di riferimento è AlbumLocalizzato a essere collegato al Luogo, non la singola Fotografia."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Gerarchia correttamente implementata."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Molteplicità errate nelle associazioni (es. 1..* tra Utente e Album non permette la creazione di un utente senza album)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Attributi ridondanti (es. CREATORE in Album, AUTORE in Fotografia) e tipi di dato non specificati."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo richiesto nel diagramma di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Responsabilità mal distribuite, in particolare la localizzazione è delegata alla fotografia invece che all'album specializzato."
+            },
+            "totale_errori_unina": 5
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma presenta una comprensione parziale del dominio. L'errore critico risiede nella logica di localizzazione: lo studente ha associato il Luogo direttamente alla Fotografia, violando il pattern di specializzazione richiesto (AlbumLocalizzato). Inoltre, la nomenclatura non segue le convenzioni standard (CamelCase) e sono stati inseriti attributi ridondanti che violano la normalizzazione del modello."
+    },
+    "S32": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi Luogo e Fotografia è stata modellata con attributi ridondanti invece di una relazione."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "La relazione tra AlbumLocalizzato e Luogo è assente; la composizione tra Album e Fotografia è modellata in modo errato."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le generalizzazioni sono corrette rispetto alla gerarchia richiesta."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le molteplicità sono incomplete o errate rispetto alla specifica (es. composizione 1..* mancante)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti (es. LUOGO, NOMELUOGO in Fotografia) che violano la normalizzazione del modello."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Inserimento di metodi non richiesti e non coerenti con il dominio strutturale."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Assegnazione errata delle responsabilità, in particolare la gestione della localizzazione è stata spostata negli attributi invece che nelle classi."
+            },
+            "totale_errori_unina": 6
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma presenta gravi errori di modellazione concettuale. Lo studente ha tentato di appiattire le relazioni (es. Luogo) all'interno degli attributi della classe Fotografia, perdendo la struttura relazionale richiesta. La nomenclatura delle classi non rispetta lo standard CamelCase richiesto e sono stati aggiunti metodi non necessari."
+    },
+    "S33": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi differenti e l'aggiunta di un enum non richiesto."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Mancano le associazioni specifiche tra AlbumPersonale/AlbumLocalizzato e le entità correlate (Utente/Luogo), sostituite da una struttura generica."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "La gerarchia di ereditarietà è correttamente implementata."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Molte cardinalità sono omesse o errate rispetto al modello di riferimento."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti (es. autore, luogo in Fotografia) che violano la normalizzazione del modello."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Inserimento di metodi non richiesti (AggiungiFoto) che non erano presenti nel diagramma di riferimento."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Le responsabilità non sono correttamente distribuite, in particolare la gestione della localizzazione e della proprietà dell'album."
+            },
+            "totale_errori_unina": 5
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma presenta una struttura logica diversa dal modello di riferimento. L'uso di attributi ridondanti all'interno della classe FOTOGRAFIA (autore, luogo) indica una scarsa comprensione della modellazione relazionale richiesta. La gerarchia è corretta, ma le associazioni specifiche per le sottoclassi di Album sono state ignorate."
+    },
+    "S34": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi specializzate AlbumPersonale e AlbumLocalizzato presenti nel modello di riferimento."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le relazioni sono semplificate e non riflettono la semantica corretta (es. composizione mancante tra Album e Fotografia, relazioni di ereditarietà assenti)."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Assenza totale delle relazioni di generalizzazione richieste."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Molteplicità non conformi o mancanti (es. 'N' non è standard UML, mancano i vincoli di composizione)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Attributi ridondanti (es. 'AUTORE' in Album è derivabile dalla relazione) e nomi non conformi al dominio."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Inserimento di metodi non richiesti e non pertinenti al diagramma strutturale (il diagramma di classe dovrebbe focalizzarsi sulla struttura, non sul comportamento)."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Mancata distinzione tra i ruoli degli oggetti (es. AlbumPersonale vs AlbumLocalizzato)."
+            },
+            "totale_errori_unina": 7
+        },
+        "osservazioni_fuzzy_matching": "Il diagramma dello studente presenta gravi lacune strutturali. Ha confuso un diagramma di classe con un diagramma di comportamento, inserendo metodi non necessari e omettendo la gerarchia di ereditarietà fondamentale per il dominio richiesto."
+    },
+    "S35": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi leggermente differenti (es. Fotografie vs Fotografia)."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "La relazione tra Fotografia e Luogo è modellata come associazione diretta invece che tramite AlbumLocalizzato; mancano le relazioni di associazione corrette tra AlbumPersonale e Utente."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono correttamente implementate."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Mancano le molteplicità in diverse associazioni critiche (es. AlbumLocalizzato-Luogo)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti o mal posizionati (es. 'autore' in Fotografia, 'creatoreAlbum' in AlbumFotografico) che violano la normalizzazione del modello."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Lo studente ha inserito descrizioni testuali di metodi all'interno della classe Utente invece di definire firme di metodi UML standard."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "La responsabilità di gestione delle relazioni è confusa dall'inserimento di attributi che dovrebbero essere rappresentati tramite associazioni."
+            },
+            "totale_errori_unina": 5
+        },
+        "osservazioni_fuzzy_matching": "Il modello presenta una confusione tra attributi e associazioni. L'uso di attributi per gestire relazioni (es. 'creatoreAlbum') è un errore di progettazione UML. La struttura delle classi è accettabile, ma la logica di navigazione tra le entità è compromessa."
+    }
+}

@@ -1,0 +1,43 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  - Nome: String
+  - password: String
+  + CREA_ALBUM_FOTO()
+  + COMPORRE_ALBUM()
+  + VEDERE_ALBUM()
+}
+
+class ALBUM {
+  - Creatore: String
+}
+
+class "ALBUM PERSONALE" as AlbumPersonale {
+}
+
+class "ALBUM LOCALIZZATO" as AlbumLocalizzato {
+}
+
+class FOTOGRAFIA {
+  - Autore: String
+  - Titolo: String
+  + RAFFIGURA_UTENTE()
+}
+
+class LUOGO {
+  - Coordinate_lat: double
+  - Coordinate_long: double
+  - Nome_mnemonico: String
+}
+
+' Relazioni di Ereditarietà
+ALBUM <|-- AlbumPersonale
+ALBUM <|-- AlbumLocalizzato
+
+' Associazioni e note dello studente
+UTENTE -- "*" ALBUM 
+ALBUM "*" -- FOTOGRAFIA
+FOTOGRAFIA "*" -- "1" LUOGO
+
+@enduml

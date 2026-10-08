@@ -1,0 +1,33 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  NOME : STRING
+  COGNOME : STRING
+  + RICEVE()
+  + INVIA()
+}
+
+class ACCOUNT {
+  PASSWORD : STRING
+  INDIRIZZO : INDIRIZZO
+  + LOGIN()
+}
+
+class MESSAGGIO {
+  DESTINATARIO : INDIRIZZO
+  CONTENUTO : FILE
+  FIRMA : INDIRIZZO
+  + RISPOSTA()
+}
+
+class RUBRICA {
+  LISTA : ARRAYLIST[C..N]
+}
+
+' Associazioni con Nazione ER (Entity-Relationship)
+UTENTE "N" -- "1" ACCOUNT : HA >
+ACCOUNT "N" -- "N" MESSAGGIO : INDIRIZZAMENTO >
+ACCOUNT "1" -- "1" RUBRICA : POSSEDERE >
+
+@enduml

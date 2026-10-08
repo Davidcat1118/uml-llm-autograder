@@ -1,0 +1,47 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  - login
+  - password
+  - postaElettronica
+  - nome
+  - cognome
+}
+
+class MITTENTE {
+}
+
+class DESTINATARIO {
+}
+
+class MESSAGGIO {
+  - testo
+  - ogetto
+  - firma
+  + set(nomeMittente)()
+  + get nomeDestinatario()
+}
+
+class RUBRICA {
+  + getnome()
+  + getcognome()
+  + getpostaElettronica()
+}
+
+' Ereditarietà
+UTENTE <|-- MITTENTE
+UTENTE <|-- DESTINATARIO
+
+' Classe Associazione
+MITTENTE "1" -- "*" DESTINATARIO : SCAMBIANO
+(MITTENTE, DESTINATARIO) .. MESSAGGIO
+
+' Aggregazioni
+RUBRICA o-- "1..*" MITTENTE : FORMATA
+RUBRICA o-- "1..*" DESTINATARIO : FORMATA
+
+' Associazione Ricorsiva
+MESSAGGIO "*" -- "*" MESSAGGIO : RISPONDE
+
+@enduml

@@ -1,0 +1,56 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  - nome
+  - cognome
+}
+
+class ACCOUNT {
+  - login
+  - email
+  - password
+}
+
+class MITTENTE {
+  + invia mess.()
+}
+
+class DESTINATARIO {
+  + rispondi()
+  + leggi mess.()
+}
+
+class MESSAGGIO {
+  - testo
+  - firma
+}
+
+class RUBRICA {
+}
+
+' Generalizzazioni
+UTENTE <|-- MITTENTE
+UTENTE <|-- DESTINATARIO
+
+' Associazioni
+UTENTE "1" -- "*" ACCOUNT
+MITTENTE "1" -- "*" MESSAGGIO
+DESTINATARIO "*" -- "1" MESSAGGIO
+
+' Dipendenze (Tratteggiate)
+ACCOUNT <.. MITTENTE
+ACCOUNT <.. DESTINATARIO
+
+' Aggregazioni
+RUBRICA o-- "*" MITTENTE
+RUBRICA o-- "*" DESTINATARIO
+
+note bottom of RUBRICA
+  Nota studente: "Un utente può essere sia mittente che destinatario,
+  può avere più account, ma per inviare un messaggio o riceverlo
+  deve avere per forza un account. Inoltre l'insieme dei mittenti
+  e destinatari compongono la rubrica essendo essi stessi dei contatti."
+end note
+
+@enduml

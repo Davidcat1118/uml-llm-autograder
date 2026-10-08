@@ -1,0 +1,7 @@
+google-genai
+
+pandas
+
+scikit-learn
+
+openpyxl

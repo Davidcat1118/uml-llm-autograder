@@ -1,0 +1,42 @@
+@startuml
+class Utente
+
+class Account {
+  - Login
+  - Password
+}
+
+class Messaggio {
+  - Testo
+  - Firma
+}
+
+class Email {
+  - indirizzo
+}
+
+class MessaggioRicevuto
+class MessaggioInviato
+class Destinatario
+class Mittente
+class Contatto
+class Rubrica
+
+Utente "1..*" -- "1" Account
+Utente "*" -- "*" Messaggio
+
+Account "1" *-- "1" Email
+
+MessaggioRicevuto -- Messaggio
+MessaggioInviato -- Messaggio
+
+MessaggioRicevuto "1" -- "1..*" Destinatario
+MessaggioRicevuto "1" -- "1" Mittente
+MessaggioInviato -- Mittente
+Email "1" -- "1" Mittente
+
+Contatto -up-|> Destinatario
+Contatto -up-|> Mittente
+
+Contatto o-- Rubrica
+@enduml

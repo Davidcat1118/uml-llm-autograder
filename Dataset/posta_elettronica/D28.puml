@@ -1,0 +1,50 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  - nome
+}
+
+class ACCOUNT {
+  - login
+  - password
+  - email
+}
+
+class MESSAGGIO {
+  - Testo
+  - Firma
+}
+
+class MITTENTE {
+  - email
+}
+
+class DESTINATARIO {
+  - email
+}
+
+class RUBRICA {
+}
+
+class CONTATTO {
+  - nome
+  - cognome
+}
+
+' Associazioni
+UTENTE "1" -- "*" ACCOUNT : gestisce >
+UTENTE "*" -- "*" MESSAGGIO : invia >
+UTENTE "*" -- "*" MESSAGGIO : riceve >
+
+MESSAGGIO "1" -- "1" MITTENTE
+MESSAGGIO "1" -- "*" DESTINATARIO
+
+RUBRICA "1" -- "*" MITTENTE : Include
+RUBRICA "1" -- "*" DESTINATARIO
+
+' Composizioni e Aggregazioni
+ACCOUNT "*" *-- "1" CONTATTO : Corrisponde
+RUBRICA "1" o-- "*" CONTATTO : Memorizza
+
+@enduml

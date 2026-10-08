@@ -1,0 +1,55 @@
+@startuml
+
+class ACCOUNT {
+  -login: String
+  -password: String
+  -email: String
+  +scriviMess(CONTATTO, testo, firma)
+  +leggiMess(MESS_RICEVUTO)
+}
+
+class RUBRICA <<directory>> {
+}
+
+class CONTATTO {
+  -nome: String
+  -cognome: String
+}
+
+class CONTATTO_email {
+  -email: String
+}
+
+class Messaggio {
+  #testo: String
+  #firma: String
+}
+
+class MESS_INVIATO {
+  -mittente: ACCOUNT
+  -destinatari[1..*]: CONTATTO_email
+}
+
+class MESS_RICEVUTO {
+  -mittente: CONTATTO_email
+  -destinatario_self[1..*]: ACCOUNT
+  -destinatario_altri[*]: CONTATTO_email
+}
+
+' Relazioni principali
+ACCOUNT "1" -- "*" MESS_RICEVUTO : legge >
+ACCOUNT "1" -- "*" MESS_INVIATO : invia >
+ACCOUNT "1" -- "1" RUBRICA
+RUBRICA  o--  CONTATTO
+CONTATTO "1" -- "*" CONTATTO_email
+
+' Navigabilità incrociate anomale
+CONTATTO_email "*" --> "*" MESS_INVIATO : riceve
+CONTATTO_email "1" --> "*" MESS_RICEVUTO : scrive
+CONTATTO_email "*" --> "1" CONTATTO
+
+' Relazioni di Ereditarietà (con etichetta testuale)
+Messaggio <|-- MESS_INVIATO : Extends
+Messaggio <|-- MESS_RICEVUTO
+
+@enduml

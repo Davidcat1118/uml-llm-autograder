@@ -1,0 +1,51 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utente {
+  + Username : String
+  + AggiungiAccount()
+  + EliminaAccount()
+}
+
+class Account {
+  + Login : String
+  + Password : String
+  + Email : String
+  + ModificaPassword()
+  + InviaMessaggio()
+  + InviaRisposta()
+  + CreaRubrica()
+  + EliminaRubrica()
+}
+
+class Messaggio {
+  + Titolo : String
+  + Firma : String
+  + LeggiContenuto()
+}
+
+class Rubrica {
+  + AggiungiContatto()
+  + RimuoviContatto()
+  + SvuotaRubrica()
+  + CercaContatto()
+  + AggiungiAccountContatto()
+  + RimuoviAccountContatto()
+}
+
+class Contatto {
+  + Nome : String
+  + Cognome : String
+  + Descrizione : String
+}
+
+' Associazioni
+Utente "1" -- "*" Account
+Account "1" -- "*" Messaggio
+Account "1..*" -- "*" Messaggio
+Account "1" -- "0..1" Rubrica
+Rubrica "1" -- "*" Contatto
+Account "*" -- "*" Contatto
+Messaggio "*" -- "1" Messaggio
+
+@enduml

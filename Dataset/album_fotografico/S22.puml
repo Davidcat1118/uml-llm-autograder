@@ -1,0 +1,40 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utente {
+  - Nome
+  - Password
+  + CreaAlbum()
+}
+
+class "Album fotografico" as AlbumFotografico {
+  - Autore
+  + generaAlbumLocalizzato()
+  + generaAlbumPersonale()
+}
+
+class Fotografia {
+  - luogo
+  - latitudine
+  - longitudine
+  - mnemonica
+  + indicaUtentiRaffigurati()
+}
+
+class Album_localizzato {
+}
+
+class Album_personale {
+}
+
+' Generalizzazioni (Ereditarietà)
+AlbumFotografico <|-- Album_localizzato
+AlbumFotografico <|-- Album_personale
+
+' Associazioni
+Utente "1" -- "*" AlbumFotografico : CREAZIONE 
+Fotografia "*" -- "1..*" AlbumFotografico
+Utente "1" -- "*" Fotografia : AUTORE 
+Utente "*" -- "*" Fotografia : RAPPRESENTAZIONE 
+
+@enduml

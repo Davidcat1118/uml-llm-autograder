@@ -1,0 +1,48 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utente {
+  - Nome: String
+  - Password: String
+  + Crea_Album()
+  + Aggiungi_fotografia()
+}
+
+class Album {
+  - Creatore: Utente
+  - Fotografie: ArrayList
+}
+
+class Personale {
+  - Soggetto: Utente
+}
+
+class Localizzato {
+  - Soggetto: Luogo
+}
+
+class Fotografia {
+  - Autore: Utente
+  - Titolo
+  - Partecipanti: Utente
+}
+
+class Luogo {
+  - Latitudine
+  - Longitudine
+  - Nome
+}
+
+' Relazioni di Ereditarietà
+Album <|-- Personale
+Album <|-- Localizzato
+
+' Associazioni e Aggregazioni
+Utente "1" -- "*" Album 
+Utente "*" -- "*" Fotografia 
+Fotografia <|-- Luogo
+
+' Aggregazione dedotta dall'attributo ArrayList
+Album o-- Fotografia
+
+@enduml

@@ -1,0 +1,12 @@
+{
+"ground_truth": "results/ground_truth.csv",
+"datasets": {
+"Baseline": "results/baseline.csv",
+"Fase 2": "results/fase2.csv",
+"Fase 3": "results/fase3.csv",
+"Fase 4": "results/fase4.csv"
+},
+"output_excel": "results/Analisi_Sperimentale_Tesi.xlsx",
+"output_latex_metriche": "results/Tabella_Metriche.tex",
+"output_latex_errori": "results/Tabella_Errori_Categorie.tex"
+}

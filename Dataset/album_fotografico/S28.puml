@@ -1,0 +1,55 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utente {
+  + Nome
+  - Password
+  - Album
+  --
+  + FotoDaLuogo()
+  + FotoConMe()
+  + CreaAlbum()
+  + Mie_Album()
+}
+
+class Album {
+  + Creatore
+  + Foto
+  + Aggiungi ()
+  + Rimuovi ()
+}
+
+class Foto {
+  + luogo
+  + Autore
+  - Raffigurati
+  --
+  + Autore ()
+  + Luogo()
+}
+
+class Luogo {
+  + Nome
+  + Latitudine
+  + Longitudine
+  --
+  + Foto DAO
+  
+}
+
+class AlbumPers {
+  + UI
+}
+
+class AlbumLoc {
+  - Luogo
+}
+
+Utente "1" -- "0..*" Album 
+Album "0..*" -- "1..*" Foto 
+Foto "0..*" -- "1" Luogo 
+
+AlbumPers -- Album
+AlbumLoc -- Album
+
+@enduml

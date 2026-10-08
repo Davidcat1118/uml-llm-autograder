@@ -1,0 +1,44 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  ID_UTENTE
+}
+
+class ACCOUNT {
+  ID_ACCOUNT
+  PASSWORD : STRING
+  INDIRIZZO_PE : STRING
+}
+
+class SISTEMA {
+  ID_SISTEMA
+}
+
+class MESSAGGIO {
+  ID_MESSAGGIO
+  TESTO : STRING
+  FIRMA : STRING
+}
+
+class CONTATTO {
+  ID_CONTATTO
+  NOME : STRING
+  COGNOME : STRING
+  MITTENTE : BOOL
+  DESTINATARIO : BOOL
+}
+
+class RUBRICA {
+  ID_RUBRICA
+  INDIRIZZO : STRING
+}
+
+' Associazioni
+UTENTE "1" -- "1..*" ACCOUNT : GESTISCE >
+UTENTE "1" -- "1" SISTEMA : OPERA SU >
+SISTEMA "1" -- "1..*" MESSAGGIO : GESTISCE >
+MESSAGGIO "1..*" -- "1" CONTATTO : SPEDITO A >
+CONTATTO "1..*" -- "1" RUBRICA : INCLUSO IN >
+
+@enduml

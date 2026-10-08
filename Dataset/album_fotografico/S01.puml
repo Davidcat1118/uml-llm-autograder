@@ -1,0 +1,42 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  + username: string {PK}
+  + password: string {PK}
+  + Componi_Album()
+  + Vedi_Album()
+}
+
+class LUOGO {
+  + latitudine
+  + longitudine
+  + nome
+}
+
+class FOTOGRAFIA {
+  + username: string {FK}
+  + Titolo: string
+  + pers_raff: string list
+  + luogo: LUOGO
+}
+
+class ALBUM {
+  + username: string {FK}
+  + Tipo_Album: TIPO_ALBUM
+  + AggiungiFoto()
+  + controlla_utente()
+}
+
+enum TIPO_ALBUM {
+  Album Localizzato
+  Album Personale
+}
+
+UTENTE "1" -- "*" ALBUM 
+ALBUM "*" o-- "*" FOTOGRAFIA 
+FOTOGRAFIA "1" -- "0..1" LUOGO 
+
+ALBUM --> TIPO_ALBUM 
+
+@enduml

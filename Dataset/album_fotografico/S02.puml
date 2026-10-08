@@ -1,0 +1,47 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utente {
+  nome
+  password
+}
+
+class "Album fotografico" as AlbumFotografico {
+  nome
+  tipo
+}
+
+class Fotografia {
+  autore
+  titolo
+  luogo
+}
+
+class Luogo {
+  longitudine
+  latidudine
+  nome_mnemonico
+}
+
+enum tipo {
+  Localizzato
+  Personale
+  Default
+}
+
+enum "nome mnemonico" as EnumNomeMnemonico {
+  citta
+  monumento
+  locale pubblico
+}
+
+' Associazioni
+Utente "0..*" -- "1" AlbumFotografico : Crea >
+Utente "0..*" -- "1" Fotografia : scatta >
+Fotografia "*" -- "0..1" Luogo
+AlbumFotografico -- tipo
+Luogo -- EnumNomeMnemonico
+
+AlbumFotografico "*" -- "1..*" Fotografia
+
+@enduml

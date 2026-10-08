@@ -1,0 +1,56 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  + Crea_account()
+}
+
+class ACCOUNT {
+  - login
+  - password
+  - indirizzo
+}
+
+class CONTATTO {
+}
+
+class MITTENTE {
+}
+
+class DESTINATARIO {
+}
+
+class MESSAGGIO {
+  - testo
+  - firma
+}
+
+class INVIATO {
+}
+
+class RICEVUTO {
+}
+
+class RUBRICA {
+  + salva_contatto()
+}
+
+' Composizione e Aggregazione
+UTENTE *-- "*" ACCOUNT : +gestisce >
+RUBRICA o-- "*" CONTATTO : +incluso >
+
+' Ereditarietà (Generalizzazioni)
+CONTATTO <|-- MITTENTE
+CONTATTO <|-- DESTINATARIO
+MESSAGGIO <|-- INVIATO
+MESSAGGIO <|-- RICEVUTO
+
+' Associazioni
+ACCOUNT "1" -- "1" MITTENTE
+ACCOUNT "1" -- "1" DESTINATARIO
+
+MITTENTE "1" -- "1" MESSAGGIO : +invia >
+DESTINATARIO "*" -- "1" MESSAGGIO : +riceve >
+
+INVIATO "1" -> "1" RICEVUTO : +risposta
+@enduml

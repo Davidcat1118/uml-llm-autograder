@@ -1,0 +1,48 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Fotografie {
+  - autore
+  - titolo
+}
+
+class Luogo {
+  - latitudine
+  - longitudine
+  - nomeMnemico
+}
+
+class Utente {
+  - nome
+  - password
+  - Foto scattate
+  --
+  - Comporre album con foto scattate o in cui l'utente è raffigurato
+  - Vedere album creati dall'utente
+}
+
+class AlbumFotografico {
+  - creatoreAlbum
+}
+
+class AlbumPersonale {
+  - utenteRaffigurato
+}
+
+class AlbumLocalizzato {
+  - luogoAlbum
+}
+
+Fotografie "1" -- "0..1" Luogo : Ambientazione
+Utente "*" -- "*" Fotografie : raffigurazione
+Utente "1" -- "*" AlbumFotografico : creazione
+
+AlbumFotografico o-- "1..*" Fotografie
+
+AlbumPersonale -up-|> AlbumFotografico
+AlbumLocalizzato -up-|> AlbumFotografico
+
+
+AlbumLocalizzato "*" -- "1" Luogo
+
+@enduml

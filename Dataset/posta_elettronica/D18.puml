@@ -1,0 +1,29 @@
+@startuml
+
+
+class ACCOUNT {
+}
+
+class UTENTE {
+}
+
+class RUBBICA {
+}
+
+class CONTATTO {
+}
+
+class MITTENTE {
+}
+
+class DESTINATARI {
+}
+
+' Associazioni e Composizioni
+UTENTE *-- ACCOUNT
+UTENTE "1" -- "1" RUBBICA
+RUBBICA -- CONTATTO
+RUBBICA -- MITTENTE
+RUBBICA -- DESTINATARI
+
+@enduml

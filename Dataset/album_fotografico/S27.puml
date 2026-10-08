@@ -1,0 +1,47 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utente {
+  # nome
+  - password
+}
+
+class Fotografia {
+  - Autore: utente.nome
+  - Titolo
+  - Luogo lat
+  - Luogo long
+  - Luogo nome
+}
+
+class "Album Fotografici" as AlbumFotografici {
+  - Autore: Utente.nome
+  - Titolo
+  - Tipo: Tipo
+}
+
+enum Tipo {
+  Album_Localizzato
+  Album_personale
+  Non Specificato
+}
+
+class "Album-Localizzato" as AlbumLocalizzato {
+  - luogo
+}
+
+class "Album-Personale" as AlbumPersonale {
+  - persona: Utente.nome
+}
+
+' Relazioni di Ereditarietà
+AlbumFotografici <|-- AlbumLocalizzato
+AlbumFotografici <|-- AlbumPersonale
+
+' Relazioni e Associazioni
+Utente "*" -- "*" Fotografia : Raffigurato-in >
+Utente "1" -- "*" AlbumFotografici
+AlbumFotografici "*" -- "*" Fotografia
+Tipo -- AlbumFotografici
+
+@enduml

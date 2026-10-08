@@ -1,0 +1,40 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utente {
+  - nome: String
+  - Password: String
+}
+
+class Fotografia {
+  - Autore: Utente
+  - titolo: String
+  - luogo
+  - Soggetto: Utente
+}
+
+class Album {
+  - titolo: String
+  - Creatore: Utente
+}
+
+enum EnumLuogo {
+  Coordinate (lat: float, long: float)
+  --
+  - nome_mnemonico
+  - nome: String
+}
+
+enum Enum_Album {
+  Alb_Luogo
+  Alb_Personale
+  Alb_LEP
+}
+
+Utente "n" -- "1" Fotografia 
+Utente "n" -- "n" Album 
+Album "n" -- "n" Fotografia
+Album -- Enum_Album
+Fotografia -- EnumLuogo
+
+@enduml

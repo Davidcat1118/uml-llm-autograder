@@ -1,0 +1,62 @@
+@startuml
+
+
+class UTENTE {
+  +invia()
+  +leggi()
+}
+
+class ACCOUNT {
+  +login
+  +password
+  +indirizzo
+}
+
+class MITTENTE {
+}
+
+class DESTINATARIO {
+}
+
+class RUBRICA {
+  +nome
+  +cognome
+  +indirizzo [0..N]
+}
+
+class MESSAGGIO {
+  +Testo
+  +Firma
+}
+
+class MESS_INVIATO {
+  +Risposta
+  +Risp_a_Rispota
+}
+
+class MESS_RICEVUTO {
+  +Risp_a_Rispota
+}
+
+class "Enumeration\nRisposta" as Enumeration_Risposta {
+  +testo
+  +firma
+}
+
+' Associazioni e Composizioni
+UTENTE "1" -- "1..*" ACCOUNT : GESTISCE >
+RUBRICA "*" o-- "1" DESTINATARIO
+RUBRICA "*" o-- "1" MITTENTE
+MITTENTE "1" -- "*" MESSAGGIO : INVIA >
+DESTINATARIO "1..*" -- "*" MESSAGGIO : RICEVE >
+
+
+Enumeration_Risposta -- MESS_INVIATO
+
+' Relazioni di Ereditarietà (Doppio Abuso - C3)
+UTENTE <|-- MITTENTE
+UTENTE <|-- DESTINATARIO
+MESSAGGIO <|-- MESS_INVIATO
+MESSAGGIO <|-- MESS_RICEVUTO
+
+@enduml

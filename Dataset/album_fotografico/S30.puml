@@ -1,0 +1,41 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  - NOME: String
+  - PASSWORD: String
+}
+
+class "ALBUM FOTO" as AlbumFoto {
+  - creatore: String
+  - foto : String
+}
+
+class LOCALIZZATO {
+  - soggetto: Luogo
+}
+
+class PERSONALE {
+  - soggetto: Utente
+}
+
+class FOTOGRAFIA {
+  - AUTORE: String
+  - Titolo: String
+}
+
+class LUOGO {
+  - latitudine: int
+  - longitudine: int
+}
+
+' Relazioni di Ereditarietà
+AlbumFoto <|-- LOCALIZZATO
+AlbumFoto <|-- PERSONALE
+
+' Associazioni
+UTENTE "1" -- "*" AlbumFoto : CREA 
+AlbumFoto "1" -- "*" FOTOGRAFIA : CONTIENE 
+FOTOGRAFIA "1" -- "1" LUOGO : SCATTATA 
+
+@enduml

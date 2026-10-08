@@ -1,0 +1,54 @@
+@startuml
+
+
+class ACCOUNT {
+  LOGIN : STRING
+  PASSWORD : STRING
+}
+
+class UTENTE {
+  NOME : STRING
+  COGNOME : STRING
+}
+
+class INDIRIZZO {
+  INDIRIZZO : STRING
+}
+
+class CONTATTO {
+  NOME : STRING
+  COGNOME : STRING
+}
+
+class RUBRICA {
+}
+
+class "MESSAGGIO INVIATO" as MESSAGGIO_INVIATO {
+}
+
+class "MESSAGGIO RICEVUTO" as MESSAGGIO_RICEVUTO {
+}
+
+class MESSAGGIO {
+  TESTO : STRING
+  FIRMA : STRING
+  isRISPOSTA : Bool
+}
+
+' Associazioni (uso anomalo della label "HA" e molteplicità E-R)
+ACCOUNT "n" -- "1" UTENTE : HA >
+ACCOUNT "1" -- "1" INDIRIZZO : HA >
+INDIRIZZO "n" -- "1" CONTATTO : HA >
+CONTATTO "n" -- "1" RUBRICA : HA >
+
+' Associazioni doppie e scorrette tra Account e sottoclassi Messaggio
+ACCOUNT "1" -- "1" MESSAGGIO_INVIATO : MITTENTE >
+ACCOUNT "1" -- "n" MESSAGGIO_INVIATO : DESTINATARI >
+ACCOUNT "1" -- "1" MESSAGGIO_RICEVUTO : MITTENTE >
+ACCOUNT "1" -- "n" MESSAGGIO_RICEVUTO : DESTINATARIO >
+
+' Ereditarietà con annotazione testuale atipica
+MESSAGGIO_INVIATO --|> MESSAGGIO : PADRE
+MESSAGGIO_RICEVUTO --|> MESSAGGIO : PADRE
+
+@enduml

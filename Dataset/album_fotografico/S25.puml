@@ -1,0 +1,34 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utente {
+  - nome: string
+  - password: String
+}
+
+class Fotografia {
+  - titolo: string
+  - Creatore: Utente
+  - luogo: Luogo
+}
+
+class Luogo {
+  - latitudine: String
+  - longitudine: String
+  - nome: String
+}
+
+class "Album Fotografico" as AlbumFotografico {
+  - nome: String
+  - creatore: Utente
+  - Tipologia: string
+}
+
+' Associazioni
+Utente "1" -- "*" AlbumFotografico : crea 
+Fotografia "*" -- "*" Utente : raffigura 
+Fotografia "*" -- "1" Luogo : situata 
+AlbumFotografico o-- Fotografia
+Utente "1" -- "*" Fotografia
+
+@enduml

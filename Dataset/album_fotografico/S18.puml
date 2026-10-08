@@ -1,0 +1,44 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utente {
+  - nome
+  - password
+}
+
+class Fotografia {
+  - titolo
+}
+
+class Luogo {
+  - latitudine
+  - longitudine
+  - nome_mnemonico
+}
+
+class Album {
+  - nome
+  - numeroFoto
+}
+
+class AlbumPersonale {
+}
+
+class AlbumLocalizzato {
+}
+
+Utente "1" -- "*" Album : creatore
+Utente "1" -- "*" Fotografia : autore
+Utente "*" -- "*" Fotografia : raffigura 
+
+Fotografia "1..*" -- "0..1" Luogo
+
+Album *-- "1..*" Fotografia 
+
+AlbumPersonale -up-|> Album
+AlbumLocalizzato -up-|> Album
+
+AlbumPersonale "*" -- "1" Utente 
+AlbumLocalizzato "*" -- "1" Luogo 
+
+@enduml

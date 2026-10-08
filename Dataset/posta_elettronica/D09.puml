@@ -1,0 +1,47 @@
+@startuml
+
+class Utente {
+  Nome
+  Cognome
+}
+
+class Account {
+  Login
+  Password
+  Indirizzo_Posta
+}
+
+class Messaggi {
+  Mittente
+  Destinatario
+  Inviato
+  Ricevuto
+  Testo
+  Firma
+}
+
+class Rubrica {
+  Contatti
+}
+
+class Contatto {
+  Nome
+  Cognome
+  Dati_Personali
+}
+
+' Rappresentazione del rombo E-R per l'attributo
+class Indirizzo_Posta << E-R Attribute >> {
+}
+
+' Associazioni e molteplicità (notazione 1, N)
+Utente "1" -- "N" Account 
+Account --"N" Messaggi 
+Account -- Rubrica 
+Rubrica -- Contatto 
+Rubrica "N" -- "N" Indirizzo_Posta
+
+' Collegamento anomalo all'attributo E-R
+Account -- Indirizzo_Posta
+
+@enduml

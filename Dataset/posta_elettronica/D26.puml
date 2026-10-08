@@ -1,0 +1,56 @@
+@startuml
+
+class Utente {
+  nome
+  cognome
+}
+
+class Account {
+  login
+  Password
+}
+
+class Email {
+  Indirizzo
+}
+
+class Messaggio {
+  testo
+  firma
+}
+
+class Mittente {
+}
+
+class Contatto {
+}
+
+class Rubrica {
+}
+
+class "Messaggio ricevuto" as Messaggio_ricevuto {
+}
+
+class "Messaggio inviato" as Messaggio_inviato {
+}
+
+class Destinatario {
+}
+
+' Associazioni e Composizioni/Aggregazioni standard
+Utente "1..*" -- "1" Account
+Utente -- Messaggio
+Account "1" o-- "1" Email
+Email "1" -- "1" Mittente
+Mittente -- Contatto
+Mittente -- Messaggio_inviato
+Rubrica o-- Contatto
+
+
+Messaggio -- Messaggio_ricevuto
+Messaggio -- Messaggio_inviato
+
+
+Messaggio_ricevuto "1" -- "1..*" Destinatario
+
+@enduml

@@ -1,0 +1,1022 @@
+{
+    "D01": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, con lievi variazioni di naming accettabili."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra messaggi e indirizzi/account sono assenti o sostituite da attributi impropri (es. mittente/destinatario come attributi in MESSAGGIO_RICEVUTO/INVIATO)."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "La direzione dell'ereditarietà è invertita: lo studente ha fatto ereditare il figlio dal padre (MESSAGGIO --|> MESSAGGIO_RICEVUTO)."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": ""
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi 'MITTENTE' e 'DESTINATARIO' nelle classi messaggio che sostituiscono le associazioni previste dalla Ground Truth."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo errato inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 0,
+                "motivo": "Non penalizzato per Regola H."
+            },
+            "totale_errori_unina": 3
+        },
+        "analisi": "Il modello dello studente presenta errori strutturali significativi: l'ereditarietà è invertita (il padre eredita dai figli), e le relazioni complesse tra messaggi, account e indirizzi sono state appiattite inserendo mittente e destinatario come semplici attributi stringa, violando la normalizzazione del modello UML."
+    },
+    "D02": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti e semanticamente coerenti con la Ground Truth."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Mancano le associazioni fondamentali tra Account/Indirizzo e i Messaggi (mittente/destinatario), che costituiscono il cuore del dominio applicativo."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà tra Messaggio e le sue sottoclassi sono corrette."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità sono assenti o errate in diverse relazioni (es. Utente-Messaggio, MessaggioRicevuto-MessaggioInviato)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Gli attributi sono incompleti (mancano testo e firma in Messaggio) e l'attributo 'Nome' in Indirizzo Email è semanticamente improprio rispetto alla Ground Truth."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo errato inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Mancano i ruoli nelle associazioni (es. mittente, destinatario, risposta) necessari per definire la semantica dei messaggi."
+            },
+            "totale_errori_unina": 4
+        },
+        "analisi": "Lo studente ha modellato correttamente la struttura gerarchica dei messaggi e la parte relativa alla rubrica, ma ha omesso completamente le relazioni di scambio messaggi tra Account/Indirizzo e Messaggi, rendendo il modello incompleto rispetto alla logica di business richiesta."
+    },
+    "D03": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Tutte le classi richieste sono presenti."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra Messaggi e Account/Indirizzo sono modellate in modo errato rispetto alla Ground Truth, perdendo la distinzione semantica tra mittente e destinatario."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono corrette."
+            },
+            "4_cardinalita": {
+                "score": 0,
+                "motivo": "Le cardinalità sono coerenti con la struttura proposta dallo studente."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Lo studente ha inserito 'mittente' e 'destinatario' come attributi stringa nelle classi MessaggioRicevuto e MessaggioInviato, violando la regola di modellazione che richiede associazioni verso la classe Indirizzo."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo errato inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 0,
+                "motivo": "Applicata regola anti-cascata: non penalizzato per la mancanza di ruoli a causa dell'errore in C5."
+            },
+            "totale_errori_unina": 2
+        },
+        "analisi": "Il modello presenta errori strutturali significativi. In particolare, la gestione dei messaggi è stata semplificata tramite attributi (mittente/destinatario come stringhe) anziché tramite associazioni, il che contravviene alla normalizzazione richiesta. Inoltre, le associazioni tra Account/Indirizzo e i messaggi non riflettono la logica di invio/ricezione definita nella Ground Truth."
+    },
+    "D04": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con una struttura differente rispetto alla Ground Truth."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra Messaggi e Account/Indirizzo sono assenti o sostituite da attributi, e la struttura relazionale è profondamente diversa dalla Ground Truth."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Lo studente ha utilizzato l'ereditarietà per modellare i ruoli 'Mittente' e 'Destinatario' (is-a Utente), il che è semanticamente errato rispetto al dominio."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità non corrispondono alla Ground Truth."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi 'mittente' e 'destinatario' nella classe MESSAGGIO che sostituiscono le associazioni previste dalla Ground Truth."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 0,
+                "motivo": "Non penalizzato per Regola H."
+            },
+            "totale_errori_unina": 4
+        },
+        "analisi": "Il modello dello studente presenta errori strutturali significativi. L'uso dell'ereditarietà per modellare ruoli (Mittente/Destinatario) è un errore concettuale (C3). Inoltre, l'inserimento di mittente e destinatario come attributi nella classe Messaggio (C5) viola la normalizzazione del modello, sostituendo le associazioni necessarie. In conformità con la Regola H, non sono state applicate ulteriori penalità alle categorie C2, C4 e C7 per le relazioni mancanti, poiché l'errore è già stato sanzionato in C5."
+    },
+    "D05": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, con nomi semanticamente affini (es. Rubbrica, messaggio, ecc.)."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Mancano le classi 'Indirizzo' e le relative associazioni verso i messaggi, sostituite da collegamenti diretti tra messaggi e contatti, alterando la struttura logica del modello."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le ereditarietà sono implementate correttamente."
+            },
+            "4_cardinalita": {
+                "score": 0,
+                "motivo": "Le cardinalità sono coerenti con la struttura proposta dallo studente."
+            },
+            "5_attributi": {
+                "score": 0,
+                "motivo": "Gli attributi aggiunti sono coerenti con il dominio e non sostituiscono relazioni strutturali previste dalla Ground Truth."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo errato inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 0,
+                "motivo": "Non sono stati definiti ruoli, ma non è un errore bloccante."
+            },
+            "totale_errori_unina": 1
+        },
+        "analisi": "Lo studente ha omesso la classe 'Indirizzo', che nella Ground Truth funge da perno per le relazioni tra messaggi e contatti. Di conseguenza, le associazioni tra messaggi e contatti sono state modellate in modo diretto, violando la normalizzazione del modello originale. Le altre componenti (ereditarietà, classi base, attributi) sono state gestite correttamente."
+    },
+    "D06": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi differenti (es. Mittente/Destinatario usati come classi invece di ruoli o attributi)."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "La struttura delle relazioni è profondamente diversa dalla Ground Truth. Lo studente ha modellato Mittente e Destinatario come classi distinte invece di utilizzare le associazioni tra Account/Indirizzo e Messaggio, violando la logica del dominio."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Lo studente ha introdotto una gerarchia errata facendo ereditare Mittente e Destinatario da Contatto, il che non è previsto dalla Ground Truth e altera la semantica del modello."
+            },
+            "4_cardinalita": {
+                "score": 0,
+                "motivo": "Non penalizzato per Regola H (l'errore strutturale è già sanzionato in C2 e C3)."
+            },
+            "5_attributi": {
+                "score": 0,
+                "motivo": "Gli attributi presenti sono coerenti con le classi definite."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "I metodi inseriti sono coerenti con le responsabilità delle classi."
+            },
+            "7_ruolo_oggetti": {
+                "score": 0,
+                "motivo": "Non penalizzato per Regola H."
+            },
+            "totale_errori_unina": 2
+        },
+        "analisi": "Lo studente ha stravolto il modello concettuale introducendo classi non necessarie (Mittente, Destinatario) per rappresentare ruoli che avrebbero dovuto essere modellati tramite associazioni tra Account/Indirizzo e Messaggio. L'uso improprio dell'ereditarietà per collegare Contatto a Mittente/Destinatario costituisce un errore semantico grave."
+    },
+    "D07": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti. Le classi Mittente e DESTINATARIO sono interpretazioni alternative dei ruoli, ma le entità fondamentali sono state modellate."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra Indirizzo e Messaggi sono assenti. Inoltre, la relazione tra Contatto e Messaggio è semanticamente errata rispetto alla Ground Truth, che prevede una relazione tra Contatto e Indirizzo."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Lo studente ha introdotto una gerarchia di ereditarietà (Utente <|-- Mittente/DESTINATARIO) non prevista dalla Ground Truth, che altera la struttura logica del dominio."
+            },
+            "4_cardinalita": {
+                "score": 0,
+                "motivo": "Le cardinalità presenti sono coerenti con la struttura proposta dallo studente."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "L'attributo 'indirizzoEmail' in Contatto e Account sostituisce la classe Indirizzo prevista dalla Ground Truth, violando la normalizzazione del modello."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo errato inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 0,
+                "motivo": "I ruoli sono coerenti con la struttura proposta."
+            },
+            "totale_errori_unina": 3
+        },
+        "analisi": "Il modello dello studente presenta deviazioni strutturali significative. L'uso dell'ereditarietà per modellare i ruoli (Mittente/Destinatario) e l'appiattimento della classe Indirizzo in semplici attributi stringa all'interno di Contatto e Account rappresentano errori concettuali che distorcono la logica del sistema rispetto alla Ground Truth."
+    },
+    "D08": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi leggermente differenti (es. Messaggi vs MessaggioRicevuto/Inviato)."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le relazioni tra Messaggi e Account/Indirizzo sono completamente errate. Lo studente ha modellato i messaggi come un'unica classe invece di utilizzare la gerarchia prevista, perdendo le relazioni di risposta e la distinzione tra inviati e ricevuti."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Manca completamente la gerarchia di ereditarietà tra Messaggio e le sue sottoclassi (MessaggioInviato/Ricevuto)."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità sono espresse in modo impreciso (uso di 'N' invece di notazioni standard) e non riflettono le logiche di business richieste."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Violazione grave: gli attributi 'Mittente', 'Destinatario', 'Inviato', 'Ricevuto' all'interno della classe Messaggi sostituiscono le associazioni necessarie tra le entità, violando la normalizzazione del modello."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Assenza totale di ruoli nelle associazioni, rendendo impossibile distinguere la direzione del messaggio (mittente/destinatario)."
+            },
+            "totale_errori_unina": 5
+        },
+        "analisi": "Il modello dello studente presenta errori strutturali gravi. Invece di utilizzare le classi specializzate e le associazioni per gestire il flusso dei messaggi, ha inserito le relazioni come attributi all'interno di una singola classe 'Messaggi'. Inoltre, manca la gerarchia di ereditarietà richiesta. Le associazioni sono modellate in modo generico e non riflettono la logica del dominio."
+    },
+    "D09": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi Contatto, Indirizzo (usata come attributo), MessaggioRicevuto e MessaggioInviato."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni sono state drasticamente semplificate e non riflettono la struttura richiesta (es. mancano le relazioni tra messaggi e indirizzi)."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Manca la gerarchia di ereditarietà tra Messaggio e le sue sottoclassi."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità non corrispondono alla Ground Truth."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Uso improprio di attributi per rappresentare relazioni (es. DESTINATARIO e FIRMA come attributi di MESSAGGIO invece di associazioni)."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Inserimento di metodi non richiesti e non coerenti con il modello strutturale."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Assenza di ruoli nelle associazioni."
+            },
+            "totale_errori_unina": 7
+        },
+        "analisi": "Il modello dello studente è un diagramma di tipo ER (Entity-Relationship) semplificato che ignora la struttura a classi richiesta. L'uso di attributi per modellare relazioni (es. DESTINATARIO in MESSAGGIO) e la mancanza di classi fondamentali rendono il modello non conforme alla Ground Truth."
+    },
+    "D10": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi differenti o accorpamenti (es. Mittente/Destinatario usati come classi invece di ruoli)."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni sono semanticamente errate rispetto alla Ground Truth. Lo studente ha modellato Mittente e Destinatario come classi distinte collegate a Messaggio, invece di utilizzare la classe Indirizzo come punto di connessione."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Uso improprio dell'ereditarietà: Utente eredita da Mittente e Destinatario, il che è semanticamente errato (un utente non è un mittente/destinatario in senso di gerarchia is-a, ma ricopre un ruolo)."
+            },
+            "4_cardinalita": {
+                "score": 0,
+                "motivo": "Le cardinalità sono presenti e coerenti con la struttura proposta dallo studente."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi che sostituiscono relazioni (es. 'Risposta' in MESS_INVIATO invece di una relazione tra messaggi) e ridondanza informativa."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "I metodi inseriti sono coerenti con il dominio applicativo."
+            },
+            "7_ruolo_oggetti": {
+                "score": 0,
+                "motivo": "Non sono stati rilevati errori specifici di navigabilità o nomi di ruolo che non siano già coperti dalla sanzione in C2."
+            },
+            "totale_errori_unina": 3
+        },
+        "analisi": "Il modello dello studente presenta gravi errori di modellazione concettuale. L'uso dell'ereditarietà per definire ruoli (Utente <|-- Mittente) è un errore semantico (C3). La struttura delle relazioni è completamente diversa dalla Ground Truth, con l'omissione della classe Indirizzo come entità centrale per il routing dei messaggi, sostituita da classi Mittente/Destinatario (C2). Infine, la gestione delle risposte tra messaggi è stata implementata tramite attributi invece che tramite associazioni (C5)."
+    },
+    "D11": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, con nomi semanticamente affini (es. ACCOUNT per Utente/Account, CONTATTO_email per Indirizzo)."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra Messaggi e Account/Indirizzo sono modellate tramite attributi (es. mittente: ACCOUNT in MESS_INVIATO) invece che tramite relazioni UML, violando la struttura della Ground Truth."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono correttamente implementate."
+            },
+            "4_cardinalita": {
+                "score": 0,
+                "motivo": "Nonostante la struttura sia diversa, le cardinalità espresse sono coerenti con il dominio."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Violazione della regola anti-cascata: l'uso di attributi per rappresentare relazioni (es. mittente: ACCOUNT) sostituisce le associazioni previste, rendendo il modello non normalizzato."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "I metodi inseriti sono coerenti con le responsabilità delle classi e non violano il dominio."
+            },
+            "7_ruolo_oggetti": {
+                "score": 0,
+                "motivo": "Non sono state applicate penalità aggiuntive in quanto l'errore strutturale è già stato sanzionato in C2/C5."
+            },
+            "totale_errori_unina": 2
+        },
+        "analisi": "Lo studente ha modellato le relazioni tra Messaggi e Account/Indirizzo utilizzando attributi di tipo classe invece di associazioni UML. Seguendo la Regola H, questo errore è stato sanzionato in C2 e C5, evitando di penalizzare ulteriormente le cardinalità o i ruoli."
+    },
+    "D12": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi fondamentali 'Indirizzo', 'MessaggioRicevuto' e 'MessaggioInviato'. Le classi 'MITTENTE' e 'DESTINATARIO' non sostituiscono correttamente la struttura dei messaggi richiesta."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra messaggi, account e indirizzi sono completamente assenti o modellate in modo errato tramite classi non previste."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "L'ereditarietà è stata utilizzata in modo errato: Utente non è padre di Mittente/Destinatario (che sono ruoli), mentre la gerarchia corretta (MessaggioRicevuto/Inviato -> Messaggio) è assente."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità non riflettono il modello di riferimento a causa della diversa struttura delle classi."
+            },
+            "5_attributi": {
+                "score": 0,
+                "motivo": "Gli attributi presenti sono coerenti con le classi definite."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo errato inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 0,
+                "motivo": "I ruoli sono stati omessi o sostituiti da classi dedicate, ma non vi sono errori di navigabilità espliciti."
+            },
+            "totale_errori_unina": 4
+        },
+        "analisi": "Il modello dello studente presenta errori strutturali. Ha confuso i ruoli (Mittente/Destinatario) con le entità (MessaggioInviato/Ricevuto), ha omesso classi fondamentali come Indirizzo e ha implementato una gerarchia di ereditarietà semanticamente errata rispetto alla Ground Truth."
+    },
+    "D13": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi leggermente differenti (es. INVIATO/RICEVUTO vs MessaggioInviato/MessaggioRicevuto)."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra Messaggi e Account/Indirizzo sono completamente errate. Lo studente ha creato associazioni dirette tra Utente e Messaggio e tra Contatto e Messaggio, ignorando la struttura di messaggistica basata su Account e Indirizzo definita nella Ground Truth."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Lo studente ha introdotto classi 'MITTENTE' e 'DESTINATARIO' ereditate da 'CONTATTO', che non sono presenti nella Ground Truth e alterano la semantica del modello."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità sono errate a causa della diversa struttura delle relazioni rispetto alla Ground Truth."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "L'attributo 'INDIRIZZO' è inserito dentro 'ACCOUNT' come stringa, mentre nella Ground Truth è una classe separata. Inoltre, mancano gli attributi corretti per le classi di messaggistica."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo errato inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "I ruoli (es. mittente, destinatario) non sono stati modellati correttamente tramite le associazioni, ma tramite classi di ereditarietà improprie."
+            },
+            "totale_errori_unina": 5
+        },
+        "analisi": "Il modello dello studente presenta gravi deviazioni strutturali. Ha sostituito le classi di supporto (Indirizzo) con attributi semplici, ha introdotto classi di ereditarietà non necessarie (Mittente/Destinatario) per modellare ruoli che dovevano essere associazioni, e ha completamente stravolto il grafo delle relazioni tra Utente, Account e Messaggi."
+    },
+    "D14": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi Indirizzo, Account, MessaggioRicevuto e MessaggioInviato, fondamentali per la struttura richiesta."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "La struttura delle relazioni è completamente diversa dalla Ground Truth; l'uso di una classe associazione tra Mittente e Destinatario non modella correttamente il flusso dei messaggi richiesto."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "L'ereditarietà è applicata in modo errato: Utente non è padre di Mittente/Destinatario, ma possiede Account."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità non riflettono le specifiche del dominio (es. gestione dei messaggi e indirizzi)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Gli attributi sono inseriti in classi errate (es. nome/cognome in Utente invece che in Contatto) e mancano quelli richiesti."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "I metodi inseriti sono semanticamente scorretti e non pertinenti al modello strutturale richiesto."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "I ruoli e la navigabilità non corrispondono alla logica di invio/ricezione messaggi definita nella Ground Truth."
+            },
+            "totale_errori_unina": 7
+        },
+        "analisi": "Il modello dello studente presenta errori strutturali gravi. Ha tentato di modellare il sistema tramite una classe associazione e una gerarchia di ereditarietà non prevista, perdendo completamente le entità chiave (Account, Indirizzo, MessaggioRicevuto/Inviato) necessarie per rappresentare correttamente il dominio."
+    },
+    "D15": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Tutte le classi principali sono presenti o semanticamente coperte."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Mancano le associazioni tra Indirizzo e Messaggi, e tra Account e Messaggi. La struttura relazionale è significativamente semplificata rispetto alla Ground Truth."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le generalizzazioni tra Messaggio e le sue sottoclassi sono correttamente implementate."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità sono errate o mancanti a causa della semplificazione eccessiva delle relazioni."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "L'inserimento di 'mittente' e 'destinatario' come attributi nella classe Messaggio viola la regola di normalizzazione, sostituendo le associazioni previste dalla Ground Truth."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo presente."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "I ruoli non sono definiti correttamente a causa della mancanza delle associazioni specifiche tra le entità."
+            },
+            "totale_errori_unina": 4
+        },
+        "analisi": "Lo studente ha semplificato eccessivamente il modello. L'errore principale risiede nell'uso di attributi (mittente, destinatario) per rappresentare relazioni che avrebbero dovuto essere modellate tramite associazioni tra classi (Indirizzo/Account), violando la regola di normalizzazione. Di conseguenza, le associazioni, le cardinalità e i ruoli risultano incompleti o assenti."
+    },
+    "D16": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti. Le classi Mittente/Destinatario sono state modellate come sottoclassi di Contatto, il che è una scelta di modellazione diversa ma non invalida la presenza dei concetti."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra Messaggi e Account/Indirizzo sono errate. Lo studente ha collegato Messaggio direttamente ad Account e ha creato classi Mittente/Destinatario che non riflettono la struttura della Ground Truth (che usa Indirizzo come entità di scambio)."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Lo studente ha utilizzato l'ereditarietà per modellare i ruoli 'Mittente' e 'Destinatario' (is-a Contatto), violando la semantica della Ground Truth dove questi sono ruoli di associazione."
+            },
+            "4_cardinalita": {
+                "score": 0,
+                "motivo": "Le cardinalità sono presenti e coerenti con la struttura proposta dallo studente."
+            },
+            "5_attributi": {
+                "score": 0,
+                "motivo": "Gli attributi sono coerenti con le classi definite. Non vi è duplicazione di associazioni tramite attributi."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "I metodi inseriti sono generici e non violano le responsabilità delle classi."
+            },
+            "7_ruolo_oggetti": {
+                "score": 0,
+                "motivo": "I ruoli sono stati omessi o sostituiti da classi dedicate, ma non vi sono errori di navigabilità espliciti."
+            },
+            "totale_errori_unina": 2
+        },
+        "analisi": "Lo studente ha stravolto la struttura relazionale della Ground Truth. In particolare, ha modellato 'Mittente' e 'Destinatario' come sottoclassi di 'Contatto' (ereditarietà impropria, C3=1) invece di utilizzare le associazioni tra 'Indirizzo' e 'Messaggio'. Di conseguenza, le associazioni tra messaggi e account/indirizzi risultano semanticamente errate (C2=1). Non sono state applicate penalità a cascata su C4 e C7 per rispettare la Regola H."
+    },
+    "D17": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi Indirizzo, MessaggioRicevuto e MessaggioInviato, fondamentali per la struttura del dominio."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra Account e Messaggio sono semplificate e non distinguono tra invio e ricezione tramite classi dedicate, perdendo la semantica richiesta."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Mancano le generalizzazioni tra Messaggio e le sue sottoclassi (MessaggioRicevuto/Inviato)."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità sono errate o mancanti rispetto alla complessità del modello di riferimento (es. gestione risposte)."
+            },
+            "5_attributi": {
+                "score": 0,
+                "motivo": "Gli attributi presenti sono coerenti con le classi definite."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo errato inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Mancano i ruoli espliciti (mittente, destinatario) necessari per disambiguare le relazioni tra Account e Messaggio."
+            },
+            "totale_errori_unina": 5
+        },
+        "analisi": "Il modello dello studente è una semplificazione eccessiva che omette classi chiave (Indirizzo, MessaggioRicevuto, MessaggioInviato) e la relativa gerarchia di ereditarietà. La gestione dei messaggi è ridotta a una singola classe, perdendo la capacità di modellare correttamente il flusso di invio/ricezione e le risposte tra messaggi."
+    },
+    "D18": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi fondamentali 'Messaggio', 'MessaggioRicevuto', 'MessaggioInviato' e 'Indirizzo'. Le classi 'MITTENTE' e 'DESTINATARI' sono concettualmente errate rispetto al dominio."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra i messaggi, l'indirizzo e gli account sono completamente assenti. La struttura relazionale non riflette il modello di riferimento."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Manca l'intera gerarchia di ereditarietà tra Messaggio, MessaggioRicevuto e MessaggioInviato."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità sono omesse o errate rispetto alla logica di navigabilità richiesta."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Tutti gli attributi richiesti (nome, cognome, login, password, testo, ecc.) sono assenti."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo inserito, quindi nessuna violazione."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "I ruoli delle associazioni non sono definiti."
+            },
+            "totale_errori_unina": 6
+        },
+        "analisi": "Il modello dello studente è estremamente semplificato e non copre le entità fondamentali del dominio (Messaggi, Indirizzi). La struttura proposta è logicamente incompleta e non rispetta i requisiti strutturali della Ground Truth."
+    },
+    "D19": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi leggermente differenti (es. INVIATO/RICEVUTO vs MessaggioInviato/MessaggioRicevuto)."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra Messaggi, Account e Indirizzi sono completamente errate o assenti. Lo studente ha creato associazioni dirette tra Messaggio e Contatto che non esistono nella Ground Truth, stravolgendo la logica del modello."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Lo studente ha introdotto una gerarchia errata (CONTATTO <|-- MITTENTE/DESTINATARIO) che non esiste nella Ground Truth, modellando ruoli come sottoclassi invece che come associazioni."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità sono errate in quasi tutte le relazioni, riflettendo una struttura logica diversa da quella richiesta."
+            },
+            "5_attributi": {
+                "score": 0,
+                "motivo": "Gli attributi presenti sono coerenti con le entità, non sono stati riscontrati errori di ridondanza o sostituzione di associazioni tramite attributi."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Mancano completamente i nomi di ruolo (es. mittente, destinatario) richiesti per qualificare le associazioni tra Messaggi e Indirizzi/Account."
+            },
+            "totale_errori_unina": 4
+        },
+        "analisi": "Il modello dello studente presenta gravi lacune strutturali. L'errore principale risiede nell'aver modellato i ruoli (Mittente/Destinatario) come sottoclassi di Contatto (violazione semantica della gerarchia) e nell'aver ignorato completamente la classe Indirizzo e la sua funzione di snodo tra messaggi e contatti, sostituendola con associazioni dirette non previste."
+    },
+    "D20": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi differenti e una struttura logica diversa."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra Messaggi e Indirizzi/Account sono assenti o modellate in modo errato tramite classi non previste (Mittente/Destinatario come classi invece che ruoli)."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Manca completamente la gerarchia di ereditarietà tra Messaggio, MessaggioRicevuto e MessaggioInviato."
+            },
+            "4_cardinalita": {
+                "score": 0,
+                "motivo": "Le cardinalità sono presenti e coerenti con la struttura proposta dallo studente."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "L'uso di attributi come 'mittente' e 'destinatario' all'interno della classe MESSAGGIO sostituisce le associazioni necessarie, violando la normalizzazione del modello."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "I metodi inseriti nelle classi MITTENTE e DESTINATARIO sono semanticamente scorretti rispetto al dominio, in quanto le classi stesse non dovrebbero esistere come entità separate."
+            },
+            "7_ruolo_oggetti": {
+                "score": 0,
+                "motivo": "Non applicabile a causa della diversa struttura delle classi."
+            },
+            "totale_errori_unina": 4
+        },
+        "analisi": "Il modello dello studente presenta errori strutturali gravi: ha trasformato ruoli (Mittente/Destinatario) in classi, ha omesso la gerarchia di ereditarietà dei messaggi e ha utilizzato attributi per gestire relazioni che avrebbero dovuto essere modellate tramite associazioni, violando i principi di normalizzazione UML."
+    },
+    "D21": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi Indirizzo, MessaggioRicevuto, MessaggioInviato e la gerarchia di ereditarietà prevista dalla Ground Truth."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni sono semplificate in modo errato, perdendo la distinzione tra messaggi inviati/ricevuti e la relazione con l'indirizzo."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Assente la gerarchia di ereditarietà richiesta per la classe Messaggio."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità non riflettono la complessità del dominio (es. relazione tra messaggi e rubrica)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi che sostituiscono le relazioni (es. MITTENTE e DESTINATARI in MESSAGGI invece di associazioni verso le classi corrette)."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "I metodi inseriti sono coerenti con il dominio, sebbene non richiesti."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Assenza totale di ruoli nelle associazioni."
+            },
+            "totale_errori_unina": 6
+        },
+        "analisi": "Il modello dello studente è una semplificazione eccessiva che viola i principi di normalizzazione UML. L'uso di attributi (MITTENTE, DESTINATARI) al posto di associazioni tra classi (Regola G, Caso 1) e la mancanza di classi fondamentali (Indirizzo, MessaggioRicevuto/Inviato) rendono il modello non conforme alla Ground Truth."
+    },
+    "D22": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi Utente, Indirizzo, MessaggioRicevuto e MessaggioInviato, fondamentali per la struttura richiesta."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra messaggi, indirizzi e account sono completamente assenti o modellate in modo errato tramite una classe associazione non pertinente."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Manca la gerarchia di ereditarietà tra Messaggio e le sue sottoclassi."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità non riflettono il dominio richiesto a causa della mancanza delle classi e delle relazioni corrette."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "L'attributo 'Indirizzo_Destinator' in MESSAGGIO sostituisce l'associazione necessaria verso la classe Indirizzo, violando la regola di normalizzazione."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo errato inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "I ruoli non sono correttamente definiti secondo la Ground Truth."
+            },
+            "totale_errori_unina": 6
+        },
+        "analisi": "Il modello dello studente è incompleto e non riflette la struttura richiesta. La mancanza di classi chiave (Utente, Indirizzo, MessaggioRicevuto/Inviato) impedisce la corretta modellazione delle relazioni. Inoltre, l'uso di un attributo per rappresentare un destinatario invece di un'associazione è un errore di modellazione (violazione della normalizzazione)."
+    },
+    "D23": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Tutte le classi richieste sono presenti, seppur con naming leggermente differente."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni sono semanticamente errate rispetto alla Ground Truth. Lo studente ha modellato relazioni di possesso (HA) che non riflettono la struttura di messaggistica, e le relazioni tra Account e Messaggi sono logicamente invertite o errate (es. Account non dovrebbe avere una relazione diretta di 'mittente' con MessaggioRicevuto)."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le relazioni di ereditarietà sono correttamente implementate."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità sono errate in quasi tutte le associazioni (es. 1:1 tra Account e Indirizzo, mentre la GT prevede 1:1..*)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti/errati: 'isRISPOSTA' in Messaggio sostituisce la relazione di associazione tra MessaggioRicevuto e MessaggioInviato prevista dalla Ground Truth."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo errato inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "I ruoli sono assenti o modellati in modo improprio tramite etichette testuali generiche ('HA', 'MITTENTE') che non seguono la semantica UML richiesta."
+            },
+            "totale_errori_unina": 4
+        },
+        "analisi": "Il modello dello studente presenta gravi lacune nella modellazione delle associazioni e delle cardinalità. L'errore più critico è in C5, dove l'attributo 'isRISPOSTA' tenta di sostituire una relazione strutturale complessa, violando la normalizzazione del modello. A causa della Regola H, non sono state applicate ulteriori penalità a cascata su C2, C4 e C7 per le relazioni mancanti derivanti da tale scelta."
+    },
+    "D24": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi Indirizzo, MessaggioRicevuto e MessaggioInviato, fondamentali per la logica di messaggistica richiesta."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra messaggi, account e indirizzi sono completamente assenti o sostituite da una struttura semplificata non conforme alla Ground Truth."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Manca la gerarchia di ereditarietà tra Messaggio e le sue sottoclassi (MessaggioRicevuto/Inviato)."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità non riflettono il modello di riferimento a causa della diversa struttura delle classi."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Presenza di attributi ridondanti (MITTENTE, DESTINATARIO) che tentano di simulare relazioni mancanti, violando la normalizzazione."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo introdotto."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "I ruoli delle associazioni (es. mittente, destinatario) sono assenti o modellati in modo errato tramite attributi."
+            },
+            "totale_errori_unina": 6
+        },
+        "analisi": "Il modello dello studente presenta una struttura radicalmente diversa dalla Ground Truth. La mancanza di classi chiave (Indirizzo, MessaggioRicevuto/Inviato) e l'uso di attributi booleani per gestire ruoli che dovrebbero essere modellati tramite associazioni rendono il diagramma non conforme ai requisiti strutturali richiesti."
+    },
+    "D25": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 1,
+                "motivo": "Mancano le classi Indirizzo, MessaggioRicevuto e MessaggioInviato, fondamentali per la struttura del dominio."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra Messaggi e Account/Indirizzo sono completamente errate o assenti. La struttura dei messaggi è semplificata in modo non conforme alla Ground Truth."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Manca la gerarchia di ereditarietà tra Messaggio e le sue sottoclassi (MessaggioRicevuto/Inviato)."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità non riflettono le specifiche del dominio (es. la relazione tra Account e Messaggi è modellata in modo generico)."
+            },
+            "5_attributi": {
+                "score": 0,
+                "motivo": "Gli attributi aggiunti sono coerenti con le classi presenti, non violano la regola di normalizzazione."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "I metodi inseriti sono coerenti con le responsabilità delle classi nel contesto del diagramma dello studente."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "Mancano i ruoli nelle associazioni (es. mittente, destinatario) che definiscono la semantica dei messaggi."
+            },
+            "totale_errori_unina": 5
+        },
+        "analisi": "Il modello dello studente è una semplificazione eccessiva che omette entità chiave (Indirizzo, MessaggioRicevuto, MessaggioInviato) e la relativa gerarchia. Le associazioni tra Account e Messaggi non distinguono tra invio e ricezione, perdendo la semantica richiesta."
+    },
+    "D26": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con una modellazione concettuale differente."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra Messaggi, Account e Indirizzi sono strutturalmente errate rispetto alla Ground Truth. Lo studente ha introdotto classi intermedie (Mittente, Destinatario) che alterano la logica di navigazione richiesta."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Mancano le relazioni di ereditarietà (is-a) tra Messaggio e le sue sottoclassi (MessaggioRicevuto/Inviato), sostituite da associazioni generiche."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità sono in gran parte omesse o non conformi alla logica di gestione dei messaggi e degli indirizzi definita nella Ground Truth."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "L'attributo 'Indirizzo' è stato modellato come classe separata (Email) in modo non coerente con la struttura richiesta, e mancano gli attributi specifici richiesti nelle classi."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo errato inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "I ruoli (es. mittente, destinatario) non sono esplicitati nelle associazioni come richiesto."
+            },
+            "totale_errori_unina": 5
+        },
+        "analisi": "Il modello dello studente presenta divergenze strutturali significative. La mancanza di ereditarietà (C3) e l'uso di classi intermedie non necessarie (Mittente/Destinatario) al posto delle associazioni dirette tra Account/Indirizzo e Messaggi (C2) compromettono la correttezza del diagramma rispetto alla Ground Truth."
+    },
+    "D27": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti e semanticamente coerenti con la Ground Truth."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Mancano le associazioni tra Indirizzo e Messaggi, e tra Account e Messaggi (sostituite da attributi impropri). La relazione tra Messaggi_ricevuti e Messaggi_inviati è semplificata rispetto alla Ground Truth."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le generalizzazioni verso la classe Messaggio sono correttamente implementate."
+            },
+            "4_cardinalita": {
+                "score": 0,
+                "motivo": "Le cardinalità presenti sono coerenti con la struttura definita dallo studente."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "Violazione della regola di normalizzazione: in 'Contatto' l'indirizzo è inserito come attributo invece di una classe separata. In 'Messaggi_ricevuti' e 'Messaggi_inviati', mittente e destinatario sono inseriti come attributi invece di essere modellati tramite associazioni verso le classi Account/Indirizzo."
+            },
+            "6_metodi": {
+                "score": 1,
+                "motivo": "Il metodo 'login()' inserito nella classe Account è semanticamente errato in questo contesto, in quanto 'login' è solitamente un attributo (credenziale) e non un comportamento di business logic della classe Account."
+            },
+            "7_ruolo_oggetti": {
+                "score": 0,
+                "motivo": "Non sono stati rilevati errori specifici nei ruoli, data la struttura semplificata."
+            },
+            "totale_errori_unina": 3
+        },
+        "analisi": "Lo studente ha commesso errori di modellazione strutturale (C5) inserendo attributi al posto di relazioni (es. mittente/destinatario nei messaggi, indirizzo nel contatto). Ai sensi della Regola H, non sono state penalizzate le associazioni mancanti (C2) per evitare la doppia penalizzazione dello stesso errore concettuale. È stato penalizzato l'inserimento di un metodo non pertinente (C6)."
+    },
+    "D28": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con alcune variazioni di modellazione."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le relazioni tra Messaggio, MessaggioRicevuto e MessaggioInviato sono modellate in modo errato rispetto alla Ground Truth (mancano le associazioni di risposta e la struttura di ereditarietà è confusa). Inoltre, la gestione dei mittenti/destinatari tramite classi dedicate invece di associazioni dirette altera la semantica del modello."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Lo studente ha utilizzato l'ereditarietà per modellare ruoli (Contatto verso Mittente/Destinatario) invece di utilizzare associazioni, violando la struttura gerarchica richiesta."
+            },
+            "4_cardinalita": {
+                "score": 1,
+                "motivo": "Le cardinalità sono incoerenti con la logica di invio/ricezione dei messaggi definita nella Ground Truth."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "L'attributo 'indirizzo' è stato spostato in una classe Email separata, alterando la struttura di Account e la relazione con i messaggi."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo introdotto."
+            },
+            "7_ruolo_oggetti": {
+                "score": 1,
+                "motivo": "I ruoli (mittente, destinatario) sono stati modellati come classi anziché come ruoli di associazione, rendendo il modello semanticamente diverso."
+            },
+            "totale_errori_unina": 5
+        },
+        "analisi": "Il modello dello studente presenta errori strutturali significativi. Ha tentato di modellare ruoli (Mittente/Destinatario) come classi entità, il che ha portato a una distorsione completa delle associazioni e delle cardinalità previste. La gerarchia di ereditarietà è stata applicata in modo improprio per definire ruoli anziché specializzazioni di Messaggio."
+    },
+    "D29": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene con nomi leggermente differenti (es. MITTENTE/DESTINATARIO al posto di Indirizzo/MessaggioRicevuto/Inviato)."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni sono semanticamente errate rispetto alla Ground Truth. Lo studente ha modellato i messaggi come entità atomiche collegate a Mittente/Destinatario invece di utilizzare le classi specializzate (MessaggioRicevuto/Inviato) e le relazioni corrette tra Account e Indirizzo."
+            },
+            "3_generalizzazioni": {
+                "score": 1,
+                "motivo": "Manca completamente la gerarchia di ereditarietà tra Messaggio e le sue sottoclassi (MessaggioRicevuto/MessaggioInviato)."
+            },
+            "4_cardinalita": {
+                "score": 0,
+                "motivo": "Le cardinalità sono coerenti con la struttura proposta dallo studente, non penalizzate a causa della regola anti-cascata."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "L'uso di classi come MITTENTE e DESTINATARIO al posto di Indirizzo e le relazioni corrette tra Account e Messaggi viola la normalizzazione del modello."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo presente."
+            },
+            "7_ruolo_oggetti": {
+                "score": 0,
+                "motivo": "Non penalizzato per regola anti-cascata."
+            },
+            "totale_errori_unina": 3
+        },
+        "analisi": "Il modello dello studente presenta errori strutturali significativi. Ha omesso la gerarchia di ereditarietà (C3) e ha modellato le relazioni tra messaggi, mittenti e destinatari in modo non conforme alla Ground Truth, preferendo classi generiche invece di specializzare i messaggi (C2, C5). La regola anti-cascata è stata applicata per evitare penalizzazioni multiple sulle cardinalità e i ruoli derivanti dalle scelte strutturali errate."
+    },
+    "D30": {
+        "valutazione_unina": {
+            "1_classi": {
+                "score": 0,
+                "motivo": "Le classi principali sono presenti, sebbene manchino 'Rubrica' e 'Utente', la struttura core è identificabile."
+            },
+            "2_associazioni": {
+                "score": 1,
+                "motivo": "Le associazioni tra Indirizzo e Messaggi sono state sostituite da attributi nella classe Messaggio, violando la struttura relazionale richiesta."
+            },
+            "3_generalizzazioni": {
+                "score": 0,
+                "motivo": "Le generalizzazioni sono correttamente implementate."
+            },
+            "4_cardinalita": {
+                "score": 0,
+                "motivo": "Non sanzionato per Regola H (le relazioni sono state sostituite da attributi)."
+            },
+            "5_attributi": {
+                "score": 1,
+                "motivo": "L'inserimento di 'Destinatario' e 'Mittente' come attributi nella classe Messaggio sostituisce le associazioni previste dalla Ground Truth, violando la normalizzazione del modello."
+            },
+            "6_metodi": {
+                "score": 0,
+                "motivo": "Nessun metodo errato inserito."
+            },
+            "7_ruolo_oggetti": {
+                "score": 0,
+                "motivo": "Non sanzionato per Regola H."
+            },
+            "totale_errori_unina": 2
+        },
+        "analisi": "Lo studente ha modellato le relazioni tra Messaggi e Indirizzi/Account tramite attributi (Destinatario, Mittente) invece di utilizzare le associazioni previste. In base alla Regola H, la sanzione è stata applicata in C5, evitando la duplicazione della penalità in C2, C4 e C7."
+    }
+}

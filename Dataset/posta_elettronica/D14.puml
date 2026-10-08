@@ -1,0 +1,55 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class UTENTE {
+  ID_UTENTE
+}
+
+class ACCOUNT {
+  LOGIN
+  PASSWORD
+  INDIRIZZO
+}
+
+class MESSAGGIO {
+  TESTO
+  FIRMA
+}
+
+class INVIATO {
+}
+
+class RICEVUTO {
+}
+
+class CONTATTO {
+  NOME
+  COGNOME
+}
+
+class MITTENTE {
+}
+
+class DESTINATARIO {
+}
+
+class RUBRICA {
+}
+
+' Associazioni
+UTENTE "1..*" -- "1..*" MESSAGGIO : INVIA >
+UTENTE "1..*" -- "0..*" ACCOUNT : CREA >
+ACCOUNT "1..*" -- "1..1" CONTATTO
+CONTATTO "1..*" -- "1..*" MESSAGGIO
+INVIATO "1..*" -- "1..*" RICEVUTO
+
+' Composizione
+RUBRICA "1..*" *-- "1..1" CONTATTO : APPARTIENE >
+
+' Generalizzazioni
+INVIATO -up-|> MESSAGGIO
+RICEVUTO -up-|> MESSAGGIO
+MITTENTE -up-|> CONTATTO
+DESTINATARIO -up-|> CONTATTO
+
+@enduml
