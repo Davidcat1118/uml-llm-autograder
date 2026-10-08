@@ -41,13 +41,12 @@ out_tex_errori = cfg.get("output_latex_errori", "Tabella_Errori_Categorie.tex")
 # ==========================================================
 
 try:
-    # Tenta prima con UTF-8 compatibile con Excel (BOM)
-    df_gt = pd.read_csv(path_gt, encoding="utf-8-sig")
-    datasets = {nome: pd.read_csv(percorso, encoding="utf-8-sig") for nome, percorso in file_predizioni.items()}
+    # sep=None e engine="python" permettono a Pandas di capire da solo se il separatore è una virgola o un punto e virgola
+    df_gt = pd.read_csv(path_gt, encoding="utf-8-sig", sep=None, engine="python")
+    datasets = {nome: pd.read_csv(percorso, encoding="utf-8-sig", sep=None, engine="python") for nome, percorso in file_predizioni.items()}
 except UnicodeDecodeError:
-    # Se fallisce, usa la codifica tipica europea (Windows/Mac)
-    df_gt = pd.read_csv(path_gt, encoding="latin-1")
-    datasets = {nome: pd.read_csv(percorso, encoding="latin-1") for nome, percorso in file_predizioni.items()}
+    df_gt = pd.read_csv(path_gt, encoding="latin-1", sep=None, engine="python")
+    datasets = {nome: pd.read_csv(percorso, encoding="latin-1", sep=None, engine="python") for nome, percorso in file_predizioni.items()}
 except FileNotFoundError as e:
     print(f"[ERRORE] Impossibile caricare i file CSV: {e}")
     exit(1)
